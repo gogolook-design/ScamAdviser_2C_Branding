@@ -4447,8 +4447,13 @@
         <div class="ds-block span-6 dark" id="sound-block">
           <div class="ds-label" style="color: rgba(255,255,255,0.78);">10 · Sound</div>
           <div class="ds-title">Receipts you can <em style="font-style: italic; font-weight: 300;">hear.</em></div>
-          <div class="ds-desc" style="color: rgba(255,255,255,0.85);">Four synthesized cues — no asset files, no licensing, no system-tone fatigue. Each one is shorter than 280 ms and earns its keep by signaling state, not decorating it. Enable the toggle in the corner to hear them on every button press.</div>
+          <div class="ds-desc" style="color: rgba(255,255,255,0.85);">Five synthesized cues — no asset files, no licensing, no system-tone fatigue. Each one is shorter than 280 ms and earns its keep by signaling state, not decorating it. Sound is on by default — toggle it off in the corner if you need silence.</div>
           <div class="ds-sound-grid">
+            <div class="ds-sound-cell">
+              <span class="nm">cue.hover</span>
+              <span class="use">Whisper-quiet sine tick @ 2.2 kHz · 22 ms · gain 0.04. Plays on hover into any interactive element. Throttled to 110 ms.</span>
+              <button class="play" data-cue="hover">▶ Play</button>
+            </div>
             <div class="ds-sound-cell">
               <span class="nm">cue.tap</span>
               <span class="use">Sine tick @ 1.2 kHz · 40 ms. Plays on every primary &amp; secondary button press.</span>
@@ -4464,15 +4469,15 @@
               <span class="use">Two-note sine rise C5 → E5 · 220 ms. Confirms a safe verdict — quietly positive.</span>
               <button class="play" data-cue="safe">▶ Play</button>
             </div>
-            <div class="ds-sound-cell">
+            <div class="ds-sound-cell" style="grid-column: span 2;">
               <span class="nm">cue.block</span>
-              <span class="use">Sub-bass thunk + low-pass noise tail · 220 ms. Fires when user backs out of a scam page.</span>
+              <span class="use">Sub-bass thunk + low-pass noise tail · 220 ms. Fires when user backs out of a scam page via the danger CTA.</span>
               <button class="play" data-cue="block">▶ Play</button>
             </div>
           </div>
           <div class="ds-rule" style="color: rgba(255,255,255,0.78);">
             <strong style="color: var(--signal-red); font-weight: 400;">Rules:</strong>
-            opt-in only · master volume capped at 0.55 · auto-mute if <code style="font-family: var(--mono); opacity: 0.85;">prefers-reduced-motion</code>.
+            on by default · master capped at 0.55 · hover only on <code style="font-family: var(--mono); opacity: 0.85;">pointer: fine</code> · auto-mute under <code style="font-family: var(--mono); opacity: 0.85;">prefers-reduced-motion</code>.
           </div>
         </div>
 
@@ -4747,7 +4752,9 @@
 // =============================================================
 (function(){
   let ctx = null, master = null;
-  let enabled = localStorage.getItem('sa-audio') === '1';
+  // Default ON — sound is part of the brand now. Respect explicit opt-out and reduced-motion.
+  const stored = localStorage.getItem('sa-audio');
+  let enabled = stored === null ? true : stored === '1';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducedMotion) enabled = false;
 
@@ -4806,7 +4813,9 @@
       ensure();
       tone({freq:220, dur:0.18, gain:0.30, slideTo:80});
       nburst({freq:600, slideTo:120, q:1.5, dur:0.22, gain:0.16});
-    }
+    },
+    // Whisper-quiet hover hint. 22ms, gain 0.04 — sits below conversation volume.
+    hover() { ensure(); tone({freq:2200, dur:0.022, gain:0.04, attack:0.001, type:'sine'}); }
   };
 
   // Sticky toggle button
@@ -4846,6 +4855,26 @@
     if (t.classList.contains('danger')) { cues.block(); return; }
     cues.tap();
   });
+
+  // Hover hint — throttled so rapid mouse paths don't spam.
+  // Only fires on real pointer:fine devices (skips touch/mobile).
+  const fine = window.matchMedia('(pointer: fine)').matches;
+  if (fine) {
+    let lastHover = 0;
+    const HOVER_THROTTLE_MS = 110;
+    const HOVER_SELECTOR = '.sa-btn, .ext-btn, .mini-nav a, .ds-sound-cell .play, .audio-toggle, a[href]';
+    document.addEventListener('pointerover', e => {
+      if (!enabled) return;
+      const t = e.target.closest(HOVER_SELECTOR);
+      if (!t) return;
+      // Skip if pointer entered from within the same element
+      if (e.relatedTarget && t.contains(e.relatedTarget)) return;
+      const now = performance.now();
+      if (now - lastHover < HOVER_THROTTLE_MS) return;
+      lastHover = now;
+      cues.hover();
+    });
+  }
 
   // Tag specific buttons in the guideline with named cues
   document.querySelectorAll('.ext-btn.primary').forEach(b => {
