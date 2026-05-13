@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ScamAdviser · Motion + Sound Lab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:#CC1417; --signal-red:#EE3E41; --ink:#1A1A1A; --paper:#EFEBE2;
+    --warm:#FFFFF8; --orange:#FF8A00; --safe:#00A67E;
+    --sans:'Inter',-apple-system,sans-serif;
+    --mono:'JetBrains Mono','SF Mono',monospace;
+    --ease:cubic-bezier(0.2,0.8,0.2,1);
+    --ease-slow:cubic-bezier(0.4,0,0.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--sans);background:var(--paper);color:var(--ink);
+    min-height:100vh;padding:48px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1280px;margin:0 auto;}
+  header{margin-bottom:48px;}
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--red);font-weight:600;margin-bottom:8px;
+  }
+  h1{
+    font-size:clamp(40px,5.5vw,68px);font-weight:800;letter-spacing:-0.035em;
+    line-height:0.95;margin-bottom:16px;
+  }
+  h1 em{font-style:italic;font-weight:300;}
+  .intro{font-size:17px;max-width:680px;line-height:1.5;opacity:0.78;}
+  .intro a{color:var(--red);text-decoration:none;border-bottom:1px solid currentColor;}
+
+  .section-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+    opacity:0.6;margin:48px 0 16px;
+  }
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  @media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:640px){.grid{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--warm);border:1px solid rgba(0,0,0,0.08);
+    padding:28px;display:flex;flex-direction:column;gap:14px;
+    min-height:260px;position:relative;
+  }
+  .card.dark{background:var(--ink);color:var(--warm);border-color:var(--ink);}
+  .card.red{background:var(--red);color:var(--warm);border-color:var(--red);}
+  .card .lbl{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.14em;
+    text-transform:uppercase;opacity:0.7;
+  }
+  .card h3{
+    font-size:20px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;
+  }
+  .card .desc{
+    font-family:var(--mono);font-size:12px;line-height:1.55;opacity:0.78;
+  }
+  .stage{
+    flex:1;display:flex;align-items:center;justify-content:center;
+    padding:20px 0;min-height:120px;position:relative;overflow:hidden;
+  }
+  .btn{
+    align-self:flex-start;font-family:var(--sans);font-weight:600;font-size:13px;
+    padding:10px 18px;border-radius:999px;border:1px solid var(--ink);
+    background:var(--ink);color:var(--warm);cursor:pointer;
+    transition:transform 120ms var(--ease), background 120ms var(--ease);
+    letter-spacing:-0.005em;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn:active{transform:translateY(0) scale(0.97);}
+  .btn.red{background:var(--red);border-color:var(--red);}
+  .btn.ghost{background:transparent;color:inherit;border-color:currentColor;opacity:0.85;}
+  .card.dark .btn{background:var(--warm);color:var(--ink);border-color:var(--warm);}
+  .card.red .btn{background:var(--ink);color:var(--warm);border-color:var(--ink);}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+
+  /* --- Motion demos --- */
+
+  /* Score count-up */
+  .score-big{
+    font-family:var(--mono);font-weight:700;font-size:108px;letter-spacing:-0.06em;
+    line-height:0.9;color:var(--signal-red);
+  }
+  .score-big .denom{font-size:18px;opacity:0.55;margin-left:4px;}
+
+  /* Alert pulse */
+  .pulse-card{
+    width:220px;padding:18px 22px;border-radius:14px;background:var(--warm);
+    border:2px solid transparent;font-family:var(--mono);font-size:12px;letter-spacing:-0.01em;
+    box-shadow:0 1px 3px rgba(0,0,0,0.08);
+    transition:border-color 200ms var(--ease), background 200ms var(--ease);
+  }
+  .pulse-card.pulse{
+    animation:pulseBorder 1100ms var(--ease);
+  }
+  @keyframes pulseBorder{
+    0%   {border-color:transparent;background:var(--warm);}
+    20%  {border-color:var(--signal-red);background:rgba(238,62,65,0.06);}
+    50%  {border-color:transparent;background:var(--warm);}
+    70%  {border-color:var(--signal-red);background:rgba(238,62,65,0.06);}
+    100% {border-color:transparent;background:var(--warm);}
+  }
+
+  /* Scan sweep */
+  .scan-target{
+    width:240px;height:130px;border-radius:14px;background:var(--ink);color:var(--warm);
+    position:relative;overflow:hidden;display:flex;flex-direction:column;
+    justify-content:space-between;padding:16px;
+  }
+  .scan-target .small{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.78;}
+  .scan-target .head{font-size:18px;font-weight:700;letter-spacing:-0.015em;}
+  .scan-target.scanning::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 0%, rgba(238,62,65,0.0) 35%, rgba(238,62,65,0.55) 50%, rgba(238,62,65,0.0) 65%, transparent 100%);
+    animation:scanSweep 1400ms var(--ease-slow);
+  }
+  @keyframes scanSweep{
+    0%  {transform:translateY(-100%);}
+    100%{transform:translateY(100%);}
+  }
+
+  /* Counter */
+  .counter{
+    font-family:var(--mono);font-weight:700;font-size:64px;letter-spacing:-0.05em;line-height:0.9;
+    color:var(--ink);transition:transform 160ms var(--ease);
+  }
+  .counter.bump{animation:counterBump 220ms var(--ease);}
+  @keyframes counterBump{
+    0%  {transform:translateY(0)    scale(1);}
+    35% {transform:translateY(-2px) scale(1.05);}
+    100%{transform:translateY(0)    scale(1);}
+  }
+
+  /* Toast */
+  .toast-stage{position:relative;width:100%;height:140px;}
+  .toast{
+    position:absolute;top:14px;right:14px;
+    background:var(--ink);color:var(--warm);
+    padding:14px 18px;border-radius:14px;display:flex;gap:10px;align-items:center;
+    font-family:var(--mono);font-size:12px;line-height:1.4;letter-spacing:-0.005em;
+    box-shadow:0 12px 36px rgba(0,0,0,0.18);
+    transform:translateX(140%);opacity:0;
+    pointer-events:none;
+    max-width:90%;
+  }
+  .toast .dot{width:8px;height:8px;border-radius:50%;background:var(--signal-red);flex-shrink:0;}
+  .toast.show{
+    animation:toastIn 320ms var(--ease) forwards;
+  }
+  @keyframes toastIn{
+    0%  {transform:translateX(140%);opacity:0;}
+    70% {transform:translateX(-6px);opacity:1;}
+    100%{transform:translateX(0);opacity:1;}
+  }
+
+  /* Highlight ink-in */
+  .hl-line{font-family:var(--mono);font-size:14px;line-height:1.7;letter-spacing:-0.005em;}
+  .hl-mark{
+    background:transparent;padding:1px 4px;border-radius:2px;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;
+    transition:background 220ms var(--ease);
+  }
+  .hl-mark.on{background:rgba(204,20,23,0.18);}
+  .hl-mark.solid.on{background:var(--red);color:var(--warm);}
+
+  /* Buttons demo card */
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .sa-btn{
+    font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:-0.005em;
+    padding:10px 18px;border-radius:999px;border:1px solid transparent;cursor:pointer;
+    transition:transform 200ms var(--ease), background 200ms var(--ease), box-shadow 200ms var(--ease);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .sa-btn.primary{background:var(--red);color:var(--warm);}
+  .sa-btn.primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(204,20,23,0.28);}
+  .sa-btn.primary:active{transform:translateY(0) scale(0.97);box-shadow:none;}
+  .sa-btn.secondary{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .sa-btn.secondary:hover{background:var(--ink);color:var(--warm);}
+  .sa-btn.secondary:active{transform:scale(0.97);}
+  .sa-btn .arrow{transition:transform 200ms var(--ease);}
+  .sa-btn:hover .arrow{transform:translateX(3px);}
+
+  /* --- Sound: oscilloscope mini --- */
+  .scope{
+    width:100%;height:40px;background:rgba(0,0,0,0.04);border-radius:4px;
+    margin-top:auto;
+  }
+  .card.dark .scope{background:rgba(255,255,255,0.06);}
+  .card.red .scope{background:rgba(255,255,255,0.12);}
+
+  footer{
+    margin-top:64px;padding-top:24px;border-top:1px solid rgba(0,0,0,0.1);
+    font-family:var(--mono);font-size:11px;letter-spacing:0.04em;opacity:0.6;
+    display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  }
+  footer a{color:inherit;}
+
+  /* Master controls */
+  .controls{
+    position:sticky;top:20px;background:var(--ink);color:var(--warm);
+    padding:14px 20px;border-radius:14px;display:flex;align-items:center;gap:18px;
+    margin-bottom:32px;flex-wrap:wrap;
+    box-shadow:0 12px 36px rgba(0,0,0,0.15);z-index:10;
+  }
+  .controls .label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.78;}
+  .controls .vol{display:flex;align-items:center;gap:10px;}
+  .controls input[type=range]{accent-color:var(--signal-red);width:120px;}
+  .controls .mute-btn{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.3);
+    background:transparent;color:var(--warm);cursor:pointer;
+  }
+  .controls .mute-btn.muted{background:var(--signal-red);border-color:var(--signal-red);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Internal Lab · Not for export</div>
+    <h1>Motion + Sound. <em>Receipts in motion.</em></h1>
+    <p class="intro">A sandbox for the brand's motion language and sonic palette. Every animation lives within the existing motion tokens (120 / 200 / 320 ms). Every sound is synthesized on the fly with Web Audio — no asset files, so we can tune them live and ship only the ones that earn it. Once you mark favorites, we'll port them into the main <a href="scamadviser-b2c-brand.html">brand guideline</a>.</p>
+  </header>
+
+  <div class="controls">
+    <span class="label">Master</span>
+    <div class="vol">
+      <span class="label" style="letter-spacing:0.06em;">vol</span>
+      <input id="vol" type="range" min="0" max="100" value="55">
+    </div>
+    <button class="mute-btn" id="muteBtn">Sound on</button>
+    <span class="label" style="margin-left:auto;opacity:0.55;">Tap a card to play</span>
+  </div>
+
+  <!-- ============ SOUND ============ -->
+  <div class="section-label">— Sonic palette · synth cues</div>
+  <div class="grid">
+
+    <!-- Detect -->
+    <div class="card">
+      <span class="lbl">cue.detect</span>
+      <h3>Scam detected.</h3>
+      <p class="desc">Sharp downward sweep + a brief noise burst. Use the second a verdict crosses below 40. ~280ms total.</p>
+      <div class="row">
+        <button class="btn red" data-play="detect">▶ Play</button>
+        <button class="btn ghost" data-play-loop="detect">×3</button>
+      </div>
+      <canvas class="scope" data-scope="detect"></canvas>
+    </div>
+
+    <!-- Safe -->
+    <div class="card">
+      <span class="lbl">cue.safe</span>
+      <h3>Verdict · safe.</h3>
+      <p class="desc">Two-note rise (C5 → E5) on a soft sine. Confirms a "you're good" moment. ~220ms.</p>
+      <div class="row">
+        <button class="btn" data-play="safe">▶ Play</button>
+      </div>
+      <canvas class="scope" data-scope="safe"></canvas>
+    </div>
+
+    <!-- Tap -->
+    <div class="card">
+      <span class="lbl">cue.tap</span>
+      <h3>Micro-tap.</h3>
+      <p class="desc">Tiny sine click at 1.2 kHz with a 40 ms decay. Optional on primary CTA press — quieter than a system tick.</p>
+      <div class="row">
+        <button class="btn" data-play="tap">▶ Play</button>
+        <button class="btn ghost" data-play-rapid="tap">×5</button>
+      </div>
+      <canvas class="scope" data-scope="tap"></canvas>
+    </div>
+
+    <!-- Tick -->
+    <div class="card">
+      <span class="lbl">cue.tick</span>
+      <h3>Counter bump.</h3>
+      <p class="desc">Soft mid-pop. Fires when the peer-report counter increments. Doesn't compete with speech.</p>
+      <div class="row">
+        <button class="btn" data-play="tick">▶ Play</button>
+        <button class="btn ghost" data-play-rapid="tick">×8</button>
+      </div>
+      <canvas class="scope" data-scope="tick"></canvas>
+    </div>
+
+    <!-- Scan -->
+    <div class="card dark">
+      <span class="lbl">cue.scan</span>
+      <h3>Scan loop.</h3>
+      <p class="desc">Filtered pink-noise sweep, looped. Used during the 800 ms while a domain is being checked. Auto-fades on result.</p>
+      <div class="row">
+        <button class="btn" id="scanToggle">▶ Start</button>
+      </div>
+      <canvas class="scope" data-scope="scan"></canvas>
+    </div>
+
+    <!-- Block -->
+    <div class="card red">
+      <span class="lbl">cue.block</span>
+      <h3>Blocked.</h3>
+      <p class="desc">Deflected "thunk" + low-pass noise tail. Plays when the user taps "Back to safety" on a danger state.</p>
+      <div class="row">
+        <button class="btn" data-play="block">▶ Play</button>
+      </div>
+      <canvas class="scope" data-scope="block"></canvas>
+    </div>
+
+  </div>
+
+  <!-- ============ MOTION ============ -->
+  <div class="section-label">— Motion patterns</div>
+  <div class="grid">
+
+    <!-- Score count-up -->
+    <div class="card">
+      <span class="lbl">motion · score-reveal</span>
+      <h3>Score count-up.</h3>
+      <p class="desc">Number animates 0 → target with the base easing. 600 ms — pairs with cue.detect or cue.safe.</p>
+      <div class="stage">
+        <div class="score-big"><span id="scoreNum">--</span><span class="denom">/100</span></div>
+      </div>
+      <div class="row">
+        <button class="btn red" id="playScoreDanger">▶ 12 / 100</button>
+        <button class="btn" id="playScoreSafe">▶ 94 / 100</button>
+      </div>
+    </div>
+
+    <!-- Alert pulse -->
+    <div class="card">
+      <span class="lbl">motion · alert-pulse</span>
+      <h3>Alert pulse.</h3>
+      <p class="desc">Two-beat border + tinted fill. Used once on first reveal — never looped. Pairs with cue.detect.</p>
+      <div class="stage">
+        <div class="pulse-card" id="pulseCard">
+          <strong>trust-bank-alert.info</strong><br>
+          <span style="opacity:0.7;">Trust score · 12/100</span>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn red" id="playPulse">▶ Trigger</button>
+      </div>
+    </div>
+
+    <!-- Scan sweep -->
+    <div class="card">
+      <span class="lbl">motion · scan-sweep</span>
+      <h3>Scan sweep.</h3>
+      <p class="desc">Red gradient passes top-to-bottom on the target card. 1400 ms with cue.scan looped underneath.</p>
+      <div class="stage">
+        <div class="scan-target" id="scanTarget">
+          <span class="small">Checking…</span>
+          <span class="head">trust-bank-alert.info</span>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn" id="playScan">▶ Run scan</button>
+      </div>
+    </div>
+
+    <!-- Counter -->
+    <div class="card">
+      <span class="lbl">motion · counter-bump</span>
+      <h3>Peer counter.</h3>
+      <p class="desc">Tiny upward bump + scale on each increment. Pairs with cue.tick. Caps at 1 fire per 80 ms.</p>
+      <div class="stage" style="gap:8px;flex-direction:column;">
+        <div class="counter" id="counter">2,341</div>
+        <div class="lbl" style="opacity:0.55;">reports · last 48h</div>
+      </div>
+      <div class="row">
+        <button class="btn" id="playBumpOne">▶ +1</button>
+        <button class="btn ghost" id="playBumpMany">▶ +25</button>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="card">
+      <span class="lbl">motion · button-micro</span>
+      <h3>Buttons.</h3>
+      <p class="desc">Hover: −1 px lift + soft red glow. Active: settle + 0.97 scale. Arrow nudges 3 px on hover.</p>
+      <div class="stage" style="align-items:flex-start;padding-top:30px;">
+        <div class="btn-row">
+          <button class="sa-btn primary" data-tap>Check this link <span class="arrow">→</span></button>
+          <button class="sa-btn secondary" data-tap>Why?</button>
+        </div>
+      </div>
+      <div class="row">
+        <span class="desc" style="opacity:0.55;">Hover, focus, and press the buttons.</span>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="card">
+      <span class="lbl">motion · toast-in</span>
+      <h3>Toast slide-in.</h3>
+      <p class="desc">From off-canvas right with a 6 px overshoot dampen at 70%. 320 ms. Auto-dismiss after 2.5 s.</p>
+      <div class="stage toast-stage" id="toastStage">
+        <div class="toast" id="toastEl">
+          <span class="dot"></span>
+          <span>Domain flagged · 2,341 reports</span>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn red" id="playToast">▶ Trigger</button>
+      </div>
+    </div>
+
+    <!-- Highlight ink-in -->
+    <div class="card" style="grid-column:span 2;">
+      <span class="lbl">motion · highlight-ink</span>
+      <h3>Highlight ink-in.</h3>
+      <p class="desc">Background fades to SA Red 18% (or solid for hot marks) over 220 ms. Used to draw the eye after a verdict lands.</p>
+      <div class="stage">
+        <div class="hl-line">
+          This domain was registered <span class="hl-mark" id="hl1">6 days ago</span> and <span class="hl-mark" id="hl2">2,341 users</span> have already flagged it. <span class="hl-mark solid" id="hl3">Don't tap that link.</span>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn red" id="playHL">▶ Ink in</button>
+        <button class="btn ghost" id="resetHL">Reset</button>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="card dark">
+      <span class="lbl">approvals</span>
+      <h3>Vote.</h3>
+      <p class="desc">Click "Keep" on the candidates you want shipped. We'll bake the keepers into the guideline (motion section + each surface) and drop the rest.</p>
+      <div class="row" style="margin-top:auto;">
+        <button class="btn ghost" id="exportPicks">Copy my picks</button>
+      </div>
+      <div class="lbl" id="pickStatus" style="opacity:0.7;"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>ScamAdviser · Motion + Sound Lab · Rev. 05.2026</span>
+    <a href="scamadviser-b2c-brand.html">← Back to brand guideline</a>
+  </footer>
+</div>
+
+<script>
+// =============================================================
+//  Audio engine — synthesized cues, no asset files.
+// =============================================================
+let ctx = null;
+let master = null;
+let muted = false;
+let masterVol = 0.55;
+
+function ensureCtx(){
+  if(ctx) return ctx;
+  ctx = new (window.AudioContext || window.webkitAudioContext)();
+  master = ctx.createGain();
+  master.gain.value = masterVol;
+  master.connect(ctx.destination);
+  return ctx;
+}
+document.getElementById('vol').addEventListener('input', e => {
+  masterVol = e.target.value / 100;
+  if(master) master.gain.value = muted ? 0 : masterVol;
+});
+const muteBtn = document.getElementById('muteBtn');
+muteBtn.addEventListener('click', () => {
+  muted = !muted;
+  muteBtn.textContent = muted ? 'Muted' : 'Sound on';
+  muteBtn.classList.toggle('muted', muted);
+  if(master) master.gain.value = muted ? 0 : masterVol;
+});
+
+// noise buffer cache
+let noiseBuffer = null;
+function getNoise(){
+  if(noiseBuffer) return noiseBuffer;
+  const sr = ctx.sampleRate;
+  noiseBuffer = ctx.createBuffer(1, sr * 2, sr);
+  const data = noiseBuffer.getChannelData(0);
+  for(let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * 0.7;
+  return noiseBuffer;
+}
+
+// Tone helpers
+function tone({freq=440, type='sine', dur=0.2, attack=0.005, decay=null, gain=0.4, slideTo=null, dest=null}){
+  ensureCtx();
+  const o = ctx.createOscillator();
+  const g = ctx.createGain();
+  o.type = type;
+  o.frequency.value = freq;
+  if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, ctx.currentTime + dur);
+  g.gain.setValueAtTime(0, ctx.currentTime);
+  g.gain.linearRampToValueAtTime(gain, ctx.currentTime + attack);
+  const releaseTime = decay ?? dur;
+  g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + releaseTime);
+  o.connect(g); g.connect(dest || master);
+  o.start();
+  o.stop(ctx.currentTime + releaseTime + 0.05);
+  return {o, g};
+}
+function noiseBurst({dur=0.2, filterFreq=2000, q=4, gain=0.3, slideTo=null, type='lowpass', dest=null}){
+  ensureCtx();
+  const src = ctx.createBufferSource(); src.buffer = getNoise();
+  const filt = ctx.createBiquadFilter(); filt.type = type; filt.frequency.value = filterFreq; filt.Q.value = q;
+  if(slideTo) filt.frequency.exponentialRampToValueAtTime(slideTo, ctx.currentTime + dur);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0, ctx.currentTime);
+  g.gain.linearRampToValueAtTime(gain, ctx.currentTime + 0.01);
+  g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+  src.connect(filt); filt.connect(g); g.connect(dest || master);
+  src.start(); src.stop(ctx.currentTime + dur + 0.05);
+  return {src, filt, g};
+}
+
+// Cues
+const cues = {
+  detect(){
+    tone({freq:880, type:'sawtooth', slideTo:140, dur:0.28, gain:0.18});
+    noiseBurst({dur:0.16, filterFreq:3000, slideTo:600, q:2, gain:0.18});
+  },
+  safe(){
+    tone({freq:523.25, type:'sine', dur:0.16, gain:0.22}); // C5
+    setTimeout(() => tone({freq:659.25, type:'sine', dur:0.22, gain:0.22}), 90); // E5
+  },
+  tap(){
+    tone({freq:1200, type:'sine', dur:0.045, gain:0.18, attack:0.001});
+  },
+  tick(){
+    tone({freq:520, type:'triangle', dur:0.07, gain:0.18, slideTo:380});
+  },
+  block(){
+    tone({freq:220, type:'sine', dur:0.18, gain:0.32, slideTo:80});
+    noiseBurst({dur:0.22, filterFreq:600, slideTo:120, q:1.5, gain:0.18});
+  },
+};
+
+// Scan loop — separate handle
+let scanHandle = null;
+function startScan(){
+  ensureCtx();
+  if(scanHandle) return;
+  const src = ctx.createBufferSource();
+  src.buffer = getNoise();
+  src.loop = true;
+  const filt = ctx.createBiquadFilter();
+  filt.type = 'bandpass'; filt.Q.value = 4; filt.frequency.value = 600;
+  const lfo = ctx.createOscillator();
+  lfo.frequency.value = 0.55;
+  const lfoGain = ctx.createGain();
+  lfoGain.gain.value = 700;
+  lfo.connect(lfoGain).connect(filt.frequency);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0, ctx.currentTime);
+  g.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.12);
+  src.connect(filt); filt.connect(g); g.connect(master);
+  src.start(); lfo.start();
+  scanHandle = {src, lfo, g};
+}
+function stopScan(){
+  if(!scanHandle) return;
+  const {src, lfo, g} = scanHandle;
+  g.gain.cancelScheduledValues(ctx.currentTime);
+  g.gain.setValueAtTime(g.gain.value, ctx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+  setTimeout(() => { try{src.stop(); lfo.stop();}catch(e){} }, 220);
+  scanHandle = null;
+}
+
+// Wire up sound buttons
+document.querySelectorAll('[data-play]').forEach(btn => {
+  btn.addEventListener('click', () => { cues[btn.dataset.play]?.(); });
+});
+document.querySelectorAll('[data-play-loop]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.playLoop;
+    cues[name]?.(); setTimeout(() => cues[name]?.(), 380); setTimeout(() => cues[name]?.(), 760);
+  });
+});
+document.querySelectorAll('[data-play-rapid]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.playRapid;
+    for(let i = 0; i < 5; i++) setTimeout(() => cues[name]?.(), i * 90);
+  });
+});
+document.getElementById('scanToggle').addEventListener('click', e => {
+  if(scanHandle){ stopScan(); e.target.textContent = '▶ Start'; }
+  else { startScan(); e.target.textContent = '■ Stop'; }
+});
+
+// =============================================================
+//  Motion demos
+// =============================================================
+
+// Score count-up
+function countTo(target, durMs=600){
+  const el = document.getElementById('scoreNum');
+  const start = parseInt(el.textContent) || 0;
+  const t0 = performance.now();
+  function frame(t){
+    const p = Math.min(1, (t - t0) / durMs);
+    // ease cubic-bezier(0.2,0.8,0.2,1) approx via easeOutCubic
+    const e = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(start + (target - start) * e);
+    if(p < 1) requestAnimationFrame(frame);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(frame);
+}
+document.getElementById('playScoreDanger').addEventListener('click', () => {
+  document.getElementById('scoreNum').textContent = '0';
+  document.getElementById('scoreNum').style.color = 'var(--signal-red)';
+  cues.detect();
+  countTo(12);
+});
+document.getElementById('playScoreSafe').addEventListener('click', () => {
+  document.getElementById('scoreNum').textContent = '0';
+  document.getElementById('scoreNum').style.color = 'var(--safe)';
+  cues.safe();
+  countTo(94);
+});
+
+// Pulse
+document.getElementById('playPulse').addEventListener('click', () => {
+  const c = document.getElementById('pulseCard');
+  c.classList.remove('pulse'); void c.offsetWidth; c.classList.add('pulse');
+  cues.detect();
+});
+
+// Scan
+document.getElementById('playScan').addEventListener('click', () => {
+  const t = document.getElementById('scanTarget');
+  t.classList.remove('scanning'); void t.offsetWidth; t.classList.add('scanning');
+  startScan();
+  setTimeout(() => { stopScan(); cues.detect(); }, 1400);
+});
+
+// Counter
+let counterVal = 2341;
+const counterEl = document.getElementById('counter');
+function bump(n=1){
+  counterVal += n;
+  counterEl.textContent = counterVal.toLocaleString();
+  counterEl.classList.remove('bump'); void counterEl.offsetWidth; counterEl.classList.add('bump');
+  cues.tick();
+}
+document.getElementById('playBumpOne').addEventListener('click', () => bump(1));
+document.getElementById('playBumpMany').addEventListener('click', () => {
+  for(let i = 0; i < 25; i++) setTimeout(() => bump(1), i * 95);
+});
+
+// Toast
+document.getElementById('playToast').addEventListener('click', () => {
+  const t = document.getElementById('toastEl');
+  t.classList.remove('show'); void t.offsetWidth; t.classList.add('show');
+  cues.tap();
+  setTimeout(() => t.classList.remove('show'), 2800);
+});
+
+// Highlight
+const hls = ['hl1','hl2','hl3'].map(id => document.getElementById(id));
+document.getElementById('playHL').addEventListener('click', () => {
+  hls.forEach(h => h.classList.remove('on'));
+  hls.forEach((h, i) => setTimeout(() => { h.classList.add('on'); cues.tap(); }, i * 280));
+});
+document.getElementById('resetHL').addEventListener('click', () => {
+  hls.forEach(h => h.classList.remove('on'));
+});
+
+// Button taps play cue
+document.querySelectorAll('[data-tap]').forEach(b => {
+  b.addEventListener('pointerdown', () => cues.tap());
+});
+
+// =============================================================
+//  Oscilloscope previews
+// =============================================================
+function drawScopeShape(canvas, samples){
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.width = canvas.offsetWidth * dpr;
+  const h = canvas.height = canvas.offsetHeight * dpr;
+  const ctx2 = canvas.getContext('2d');
+  const style = getComputedStyle(canvas);
+  const fg = canvas.closest('.card.red') ? '#FFFFF8'
+           : canvas.closest('.card.dark') ? '#EE3E41'
+           : '#CC1417';
+  ctx2.clearRect(0,0,w,h);
+  ctx2.strokeStyle = fg; ctx2.lineWidth = 1.4 * dpr;
+  ctx2.beginPath();
+  samples.forEach((s, i) => {
+    const x = (i / (samples.length-1)) * w;
+    const y = h/2 + s * (h/2 - 4*dpr);
+    if(i === 0) ctx2.moveTo(x,y); else ctx2.lineTo(x,y);
+  });
+  ctx2.stroke();
+}
+function sampleShape(kind){
+  const N = 160; const out = new Array(N);
+  for(let i = 0; i < N; i++){
+    const t = i / (N-1);
+    let v = 0;
+    if(kind === 'detect'){
+      const env = Math.pow(1 - t, 1.3);
+      const freq = 880 * Math.pow(140/880, t);
+      v = Math.sin(t * freq * 0.045) * env + (Math.random()*2-1) * env * 0.3;
+    } else if(kind === 'safe'){
+      const env = t < 0.45 ? Math.pow(1-(t/0.45), 1.2) : Math.pow(1-((t-0.45)/0.55), 1.2);
+      const freq = t < 0.45 ? 523 : 659;
+      v = Math.sin(t * freq * 0.085) * env;
+    } else if(kind === 'tap'){
+      v = Math.sin(t * 80) * Math.pow(1 - t, 5);
+    } else if(kind === 'tick'){
+      v = Math.sin(t * 50) * Math.pow(1 - t, 3);
+    } else if(kind === 'scan'){
+      v = (Math.random()*2-1) * (0.4 + Math.sin(t*8)*0.4);
+    } else if(kind === 'block'){
+      v = Math.sin(t * 28) * Math.pow(1 - t, 1.8) + (Math.random()*2-1) * Math.pow(1-t, 2) * 0.4;
+    }
+    out[i] = v * 0.9;
+  }
+  return out;
+}
+document.querySelectorAll('[data-scope]').forEach(c => {
+  drawScopeShape(c, sampleShape(c.dataset.scope));
+});
+window.addEventListener('resize', () => {
+  document.querySelectorAll('[data-scope]').forEach(c => drawScopeShape(c, sampleShape(c.dataset.scope)));
+});
+
+// =============================================================
+//  Pick tracking — simple "I want this one"
+// =============================================================
+const picks = new Set();
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('dblclick', () => {
+    const label = card.querySelector('h3')?.textContent || '?';
+    if(picks.has(label)){ picks.delete(label); card.style.outline = ''; }
+    else { picks.add(label); card.style.outline = '2px solid var(--red)'; card.style.outlineOffset = '2px'; }
+    updatePickStatus();
+  });
+});
+function updatePickStatus(){
+  const el = document.getElementById('pickStatus');
+  el.textContent = picks.size ? `${picks.size} picked — double-click again to unpick` : 'Double-click a card to mark as a keeper.';
+}
+document.getElementById('exportPicks').addEventListener('click', async () => {
+  const list = Array.from(picks).map(s => '· ' + s).join('\n') || '(no picks yet)';
+  try { await navigator.clipboard.writeText(list); document.getElementById('pickStatus').textContent = 'Copied to clipboard.'; }
+  catch(e) { alert(list); }
+});
+updatePickStatus();
+</script>
+</body>
+</html>
