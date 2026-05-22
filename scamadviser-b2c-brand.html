@@ -2297,12 +2297,54 @@
   .logo-usage h2 em { font-style: italic; font-weight: 300; }
   .logo-usage .intro { font-size: 18px; opacity: 0.82; max-width: 640px; margin-top: 16px; line-height: 1.5; }
   .lockup-grid {
-    margin-top: 64px;
+    margin-top: 32px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--ink);
     border-left: 1px solid var(--ink);
   }
+  .logo-subhead {
+    margin-top: 64px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .logo-subhead .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .logo-subhead h3 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .logo-subhead .note {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.78;
+    max-width: 520px;
+    margin-left: auto;
+  }
+  .logo-divider-callout {
+    margin-top: 48px;
+    padding: 24px 28px;
+    background: rgba(204,20,23,0.06);
+    border-left: 3px solid var(--red);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .logo-divider-callout strong { color: var(--red); font-weight: 700; }
   .lockup {
     aspect-ratio: 4 / 3;
     border-right: 1px solid var(--ink);
@@ -3141,35 +3183,95 @@
   <!-- ============ LOGO USAGE ============ -->
   <section class="section logo-usage" id="logo">
     <div class="wrap">
-      <div class="section-label">02 — Logo & Lockup</div>
-      <h2>One mark. <em>Eight contexts.</em></h2>
-      <p class="intro">The slash is the signal — it cuts through the word the way we cut through the noise. Keep it sharp, keep it off the clutter, and never rebuild it.</p>
+      <div class="section-label">02 — Logo &amp; Campaign Mark</div>
+      <h2>One logo. <em>One campaign mark.</em> Don't mix them up.</h2>
+      <p class="intro">The <strong>ScamAdviser wordmark</strong> is the logo — it goes on every official surface: app stores, footers, partner decks, press. The <strong>bs/d mark</strong> is a campaign treatment built for the B2C launch — used in hero moments, social, and editorial. Neither one substitutes for the other.</p>
+
+      <!-- ============ The logo ============ -->
+      <div class="logo-subhead">
+        <span class="n">A · The logo</span>
+        <h3>ScamAdviser wordmark</h3>
+        <span class="note">Official identity. Use on app stores, marketing footers, partner decks, press releases, splash screens, and anywhere we sign our name.</span>
+      </div>
 
       <div class="lockup-grid">
         <div class="lockup light">
           <div class="lk-caption">Primary · light</div>
+          <div class="lk-stage"><img src="project/assets/sa-logo.png" alt="ScamAdviser" style="height:42px; width:auto; display:block; max-width:80%;"></div>
+          <div class="lk-name">Anti-flash background</div>
+        </div>
+        <div class="lockup dark">
+          <div class="lk-caption">Reverse · dark</div>
+          <div class="lk-stage"><img src="project/assets/sa-logo-white.png" alt="ScamAdviser" style="height:42px; width:auto; display:block; max-width:80%;"></div>
+          <div class="lk-name">Dark UI · video chrome</div>
+        </div>
+        <div class="lockup red">
+          <div class="lk-caption">Reverse · brand red</div>
+          <div class="lk-stage"><img src="project/assets/sa-logo-white.png" alt="ScamAdviser" style="height:42px; width:auto; display:block; max-width:80%;"></div>
+          <div class="lk-name">Hero moments · press red</div>
+        </div>
+      </div>
+
+      <!-- ============ Clear space + minimums (logo) ============ -->
+      <div class="clear-space">
+        <div class="demo">
+          <div class="demo-inner" style="background:var(--anti-flash); display:flex; align-items:center; justify-content:center; padding:24px;">
+            <img src="project/assets/sa-logo.png" alt="ScamAdviser" style="height:56px; width:auto; display:block;">
+          </div>
+        </div>
+        <div class="cs-copy">
+          <div class="spec">Logo · clear space + minimums</div>
+          <h4>Give the wordmark room to breathe.</h4>
+          <p>Minimum clear space around the ScamAdviser wordmark equals the cap-height of the "S." Nothing crops into that frame — not type, not photography, not a background texture.</p>
+          <ul>
+            <li>Digital min: 96px wordmark width</li>
+            <li>Print min: 24mm wordmark width</li>
+            <li>Never rotate, skew, or stretch the wordmark</li>
+            <li>Never recolor outside the official palette (ink, white, brand red)</li>
+            <li>Never add shadows, outlines, glows, or containers</li>
+            <li>Never tile the wordmark into a pattern</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ============ Divider callout ============ -->
+      <div class="logo-divider-callout">
+        <strong>Logo ≠ campaign mark.</strong>
+        The bs/d mark below is <em>not</em> a logo. It's a campaign treatment for the B2C launch — a tactical, hero-moment expression of the brand voice. Use it for posters, social cards, headline lockups, app onboarding splash, and editorial moments. Never as the official mark in app stores, legal footers, signature blocks, partner badges, or anywhere a logo is expected.
+      </div>
+
+      <!-- ============ The campaign mark ============ -->
+      <div class="logo-subhead">
+        <span class="n">B · Campaign mark</span>
+        <h3>bs/d</h3>
+        <span class="note">Campaign treatment for the B2C launch. The slash is the signal — it cuts through the word the way we cut through the noise. Hero moments, social, editorial only.</span>
+      </div>
+
+      <div class="lockup-grid">
+        <div class="lockup light">
+          <div class="lk-caption">Campaign · light</div>
           <div class="lk-stage"><div class="mark-box">bs<span class="slash">/</span>d</div></div>
           <div class="lk-name">Anti-flash background</div>
         </div>
         <div class="lockup red">
-          <div class="lk-caption">Alert · red state</div>
+          <div class="lk-caption">Campaign · red state</div>
           <div class="lk-stage"><div class="mark-box">bs<span class="slash">/</span>d</div></div>
-          <div class="lk-name">Danger + warnings only</div>
+          <div class="lk-name">Alert + danger hero moments</div>
         </div>
         <div class="lockup dark">
-          <div class="lk-caption">Reverse · dark</div>
+          <div class="lk-caption">Campaign · dark</div>
           <div class="lk-stage"><div class="mark-box">bs<span class="slash">/</span>d</div></div>
           <div class="lk-name">Editorial + video chrome</div>
         </div>
         <div class="lockup paper">
-          <div class="lk-caption">Wordmark · full</div>
-          <div class="lk-stage"><div style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;"><img src="project/assets/sa-logo.png" alt="ScamAdviser" style="height:48px; width:auto; display:block;"><div class="mark-sub">digital bs detector</div></div></div>
-          <div class="lk-name">Full lockup · press + footer</div>
+          <div class="lk-caption">Campaign lockup</div>
+          <div class="lk-stage"><div style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;"><div class="mark-box" style="font-size:40px;">bs<span class="slash">/</span>d</div><div class="mark-sub">digital bs detector</div></div></div>
+          <div class="lk-name">Headline lockup · social + posters</div>
         </div>
         <div class="lockup light">
-          <div class="lk-caption">Favicon · 16–1024px</div>
+          <div class="lk-caption">Campaign favicon · launch only</div>
           <div class="lk-stage"><div style="width:72px;height:72px;background:var(--red);border-radius:12px;display:flex;align-items:center;justify-content:center;"><span style="font-size:44px;font-weight:900;color:#fff;transform:skewX(-10deg);line-height:1;">/</span></div></div>
-          <div class="lk-name">App icon + tab favicon</div>
+          <div class="lk-name">B2C campaign tab icon</div>
         </div>
         <div class="lockup wrong">
           <div class="lk-caption" style="color: var(--red); opacity: 1;">Do not · gradient fills</div>
@@ -3178,6 +3280,7 @@
         </div>
       </div>
 
+      <!-- ============ Campaign mark rules ============ -->
       <div class="clear-space">
         <div class="demo">
           <div class="demo-inner">
@@ -3185,12 +3288,14 @@
           </div>
         </div>
         <div class="cs-copy">
-          <div class="spec">Clear space + minimums</div>
+          <div class="spec">Campaign mark · rules + minimums</div>
           <h4>Give the slash room to cut.</h4>
-          <p>Minimum clear space around the mark equals the cap-height of the slash ("x"). Nothing crops into that frame — not type, not photography, not a background texture.</p>
+          <p>Minimum clear space around the campaign mark equals the cap-height of the slash ("x"). The slash is always skewed 10° — no other angle, no other slope.</p>
           <ul>
             <li>Digital min: 24px mark height</li>
             <li>Print min: 8mm mark height</li>
+            <li>Never use as a substitute for the ScamAdviser wordmark</li>
+            <li>Never appear in legal footers, app store listings, or partner badges</li>
             <li>Never rotate or skew beyond the built-in 10° of the slash</li>
             <li>Never fill the slash with brand red on a red background</li>
             <li>Never add a shadow, outline, or container around the mark</li>

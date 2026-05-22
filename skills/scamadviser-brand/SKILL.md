@@ -71,13 +71,23 @@ You are working on brand assets for **ScamAdviser** — the consumer-facing scam
 - System fallback: `-apple-system, sans-serif` / `'SF Mono', monospace`.
 - Never use serif, decorative, or condensed faces.
 
-### Logo
-- **Mark:** `bs/d` — the slash is always skewed 10deg.
-- **Contexts:** Primary light, Alert red, Reverse dark, Full wordmark, Favicon.
-- **Favicon:** Red square `#CC1417` with white slash, 16–1024px.
-- Min clear space = cap-height of the slash.
-- Digital min: 24px mark height. Print min: 8mm.
-- Never: gradients, rotation beyond 10deg, shadow/outline/container, red slash on red bg.
+### Logo (the official mark)
+- **Logo:** the **ScamAdviser wordmark** (`project/assets/sa-logo.png`, white variant `sa-logo-white.png`).
+- **Variants:** Primary light · Reverse dark · Reverse brand red.
+- **Clear space:** cap-height of the "S" on all four sides.
+- **Digital min:** 96 px wordmark width. **Print min:** 24 mm wordmark width.
+- Never rotate, skew, stretch, recolor, shadow, glow, or tile.
+- Used on app stores, legal footers, partner decks, press releases, splash screens — anywhere we sign our name.
+
+### Campaign mark — `bs/d`
+- **NOT the logo.** It's a campaign treatment for the B2C launch — a tactical, hero-moment expression of the brand voice.
+- The slash is always skewed 10° — no other angle.
+- **Use for:** posters, social cards, headline lockups, app onboarding splash, editorial moments.
+- **Never use as:** the official mark in app stores, legal footers, signature blocks, partner badges.
+- **Digital min:** 24 px mark height. **Print min:** 8 mm mark height.
+- Clear space around the mark = cap-height of the slash ("x").
+- Never: gradients, rotation beyond 10°, shadow/outline/container, red slash on red bg.
+- A campaign-era favicon exists (red square with white skewed slash) — for B2C launch tab icons only, not the permanent product favicon.
 
 ### Voice
 - Lead with verbs. Use concrete numbers. Quote the community.

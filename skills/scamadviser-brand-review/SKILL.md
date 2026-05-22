@@ -38,10 +38,12 @@ Full detail in [checklist.md](checklist.md). The eight categories:
 - Data/scores use JetBrains Mono 700 (numbers) / 400 (labels)?
 - No serif, decorative, or condensed faces?
 
-### 3. Logo (`bs/d` mark)
-- Slash skewed 10°? Clear space = cap-height of the slash? Min 24 px digital / 8 mm print?
-- Correct variant for context (Primary light / Alert red / Reverse dark / Wordmark / Favicon)?
-- No gradients, rotation beyond built-in 10°, shadow/outline/container, red slash on red bg?
+### 3. Logo & Campaign Mark
+- **Logo (wordmark):** Is the ScamAdviser wordmark used wherever the brand signs its name (app stores, footers, partner decks, press)? Correct variant for the background (light / dark / red)? Clear space = cap-height of "S"? Min 96 px digital / 24 mm print?
+- **Campaign mark (`bs/d`):** Used only for B2C-launch hero / social / editorial moments, never as the logo? Slash skewed 10°? Clear space = cap-height of slash? Min 24 px digital / 8 mm print?
+- Logo not rotated, stretched, recolored, shadowed, or contained?
+- Campaign mark not used in app stores, legal footers, partner badges, or signature blocks?
+- No gradients on either mark? No red slash on red bg?
 
 ### 4. Voice & Copy
 - Leads with verbs? Concrete numbers? Quotes the community?
@@ -88,10 +90,10 @@ Pre-check
   Sibling iso: <PASS | FAIL>  <note>
   Empowering:  <PASS | FAIL>  <note>
 
-A. Color           <X/Y passed>
-B. Typography      <X/Y passed>
-C. Logo            <X/Y passed>
-D. Voice & Copy    <X/Y passed>
+A. Color                <X/Y passed>
+B. Typography           <X/Y passed>
+C. Logo & Campaign Mark <X/Y passed>
+D. Voice & Copy         <X/Y passed>
 E. Risk Ladder     <X/Y passed>
 F. Design System   <X/Y passed>
 G. Sound           <X/Y passed | N/A>

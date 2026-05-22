@@ -35,7 +35,7 @@ Single self-contained HTML file — no build step, no dependencies. Includes:
 
 - **Hero** with sticky mini-nav (9 sections)
 - **§01 The Shift** — positioning before/after
-- **§02 Logo** — `bs/d` mark, 5 variants, favicon, clear space
+- **§02 Logo & Campaign Mark** — the ScamAdviser wordmark (logo: 3 variants + clear space + minimums) and the `bs/d` campaign treatment (separate sub-section: variants, campaign favicon, decision tree). They are NOT interchangeable.
 - **§03 Color** — 30/30/20/20 primary, secondary tier (5 options), 5-band risk ladder
 - **§04 Typography** — Inter + JetBrains Mono with full type scale
 - **§05 Voice** — tone shifts, do/don't, real voice examples
@@ -113,7 +113,7 @@ Earlier draft from a Claude Design export — moodboard images, raw assets, logo
 **Triggers:** Run after generating any ScamAdviser asset, before shipping.
 
 **Provides:**
-- 8-category checklist (~70 checks): Color · Typography · Logo · Voice · Risk Ladder · Design System · Sound · Accessibility
+- 8-category checklist (~75 checks): Color · Typography · Logo & Campaign Mark · Voice · Risk Ladder · Design System · Sound · Accessibility
 - Iterative pass — fixes issues and re-runs up to 10 times
 - Structured verdict block at the end
 
@@ -150,9 +150,10 @@ Earlier draft from a Claude Design export — moodboard images, raw assets, logo
 3. **Corner radius is 4-step.** Only `0`, `4`, `14`, or `999 px`. No 6 / 8 / 10 / 12.
 4. **No fear-mongering.** "You'll lose everything" is FAIL — the brand empowers, never scares.
 5. **Casual hero (`your digital bs/detector.`) is never translated.** The cadence is the point.
-6. **No cross-brand bleed.** Whoscall green / Gogolook blue / Roo.cash orange / Juji purple / IRIS magenta — keep them out of ScamAdviser surfaces.
-7. **Sound is on by default.** Master gain ≤ 0.55. Auto-mute under `prefers-reduced-motion`.
-8. **Motion ≤ 320 ms.** No bouncy springs except the toast's 6 px overshoot dampen.
+6. **`bs/d` is the campaign mark, not the logo.** Never use it in app stores, legal footers, partner badges, or anywhere a logo is expected. The ScamAdviser wordmark is the logo.
+7. **No cross-brand bleed.** Whoscall green / Gogolook blue / Roo.cash orange / Juji purple / IRIS magenta — keep them out of ScamAdviser surfaces.
+8. **Sound is on by default.** Master gain ≤ 0.55. Auto-mute under `prefers-reduced-motion`.
+9. **Motion ≤ 320 ms.** No bouncy springs except the toast's 6 px overshoot dampen.
 
 ---
 

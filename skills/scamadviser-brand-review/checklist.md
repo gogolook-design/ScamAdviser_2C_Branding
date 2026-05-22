@@ -27,16 +27,27 @@
 - [ ] B7. No serif, decorative, or condensed typefaces anywhere.
 - [ ] B8. No mixed weight scales within a surface (don't combine 300, 500, and 800 in the same panel without intent).
 
-## C. Logo (8 checks)
+## C. Logo & Campaign Mark (12 checks)
 
-- [ ] C1. Uses the official `bs/d` mark — never recreated by hand.
-- [ ] C2. Slash is the correct 10° skew — no other angle.
-- [ ] C3. Correct variant for context: Primary light / Alert red / Reverse dark / Wordmark / Favicon.
-- [ ] C4. Clear space = cap-height of the slash on all four sides. Nothing crops into that frame.
-- [ ] C5. Meets minimum size: 24 px digital, 8 mm print.
-- [ ] C6. No gradients, drop shadows, outlines, glows, 3D, or containers.
-- [ ] C7. No rotation beyond the built-in 10° skew.
-- [ ] C8. Red slash on red background is forbidden — switch variant.
+> The **ScamAdviser wordmark** is the logo. The **`bs/d` mark** is a campaign treatment, NOT the logo. Don't substitute.
+
+### C.1 — Logo (ScamAdviser wordmark)
+
+- [ ] C1. Uses the official wordmark file (`sa-logo.png` or `sa-logo-white.png`) — never recreated by hand.
+- [ ] C2. Correct variant for the background — light on `--anti-flash`, white on `--ink`, white on `--red`.
+- [ ] C3. Clear space on all four sides = cap-height of the "S." Nothing crops into that frame.
+- [ ] C4. Meets minimum size: 96 px wordmark width (digital) / 24 mm (print).
+- [ ] C5. Not rotated, skewed, stretched, distorted, or disproportionately scaled.
+- [ ] C6. Not recolored outside the official palette (ink, white, brand red).
+- [ ] C7. No effects applied (shadow, glow, outline, gradient, 3D, emboss, container box).
+- [ ] C8. The wordmark — not the `bs/d` campaign mark — is used in app stores, marketing footers, partner decks, press releases, splash screens, signature blocks.
+
+### C.2 — Campaign mark (`bs/d`)
+
+- [ ] C9. Used only in B2C-launch contexts: hero posters, social cards, headline lockups, app onboarding splash, editorial moments.
+- [ ] C10. Slash skewed exactly 10° — no other angle. Clear space = cap-height of slash. Min 24 px digital / 8 mm print.
+- [ ] C11. NOT used as the logo — never appears in app stores, legal footers, partner badges, signature blocks, or anywhere a logo is expected.
+- [ ] C12. No gradients on type or slash; no rotation beyond the 10° skew; no shadow/outline/container; no red slash on red bg.
 
 ## D. Voice & Copy (12 checks)
 
@@ -110,3 +121,5 @@
 | Pill button at 12 px radius | Snap to 999 px (pill) or 14 px (card). No middle ground. |
 | Two primary CTAs on one screen | Keep one primary, demote others to secondary or ghost |
 | Cross-brand colors (green/blue/orange) creeping in | Audit palette; remove sibling-brand hex values |
+| `bs/d` campaign mark used as the logo in a footer / app store / partner badge | Swap in the ScamAdviser wordmark (`sa-logo.png` / `sa-logo-white.png`) |
+| ScamAdviser wordmark stretched, skewed, or recolored | Replace with the unmodified official wordmark file |

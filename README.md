@@ -69,7 +69,7 @@ The HTML guideline is a **single self-contained file** — no build step, no dep
 Quick map of the 12 sections:
 
 1. **The Shift** — B2B Advisor → B2C Detector positioning.
-2. **Logo** — `bs/d` mark variants, clear space, favicon spec.
+2. **Logo & Campaign Mark** — ScamAdviser wordmark (the logo) variants + clear space, separately documented `bs/d` campaign treatment + its rules. They're not interchangeable.
 3. **Color** — 30/30/20/20 primary system + secondary tier + risk ladder.
 4. **Typography** — Inter + JetBrains Mono scale.
 5. **Voice** — tone shifts, do/don't, voice examples.
