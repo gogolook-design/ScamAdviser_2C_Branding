@@ -1,0 +1,125 @@
+/* =====================================================
+   ScamAdviser B2C — Design Tokens (CSS)
+   Generated from tokens.json · v1.0 · 2026-05
+   ===================================================== */
+
+:root {
+  /* ---- Brand color ---- */
+  --red:         #CC1417;   /* ScamAdviser Red — CTAs, alerts, hero */
+  --ink:         #1A1A1A;   /* Body text, borders, dark UI */
+  --black:       #0A0A0A;   /* Deep black for max contrast */
+  --warm-grey:   #EFEBE2;   /* Canvas / page bg (~30%) */
+  --warm-white:  #FFFFF8;   /* Surface / cards (~30%) */
+  --signal-red:  #EE3E41;   /* Dangerous risk band + red text on dark cells */
+
+  /* Aliases used historically across the codebase */
+  --paper:       #EFEBE2;
+  --white:       #FFFFF8;
+
+  /* ---- Risk Ladder (functional only — never decorative) ---- */
+  --risk-dangerous:        #EE3E41;
+  --risk-likely-dangerous: #FF6712;
+  --risk-warning:          #FF8A00;
+  --risk-likely-safe:      #63B100;
+  --risk-safe:             #00A67E;
+
+  /* Legacy aliases */
+  --orange:      #FF8A00;
+  --warn-orange: #FF6712;
+  --likely-safe: #63B100;
+  --safe-green:  #00A67E;
+  --teal:        #00A68D;
+
+  /* ---- Secondary (editorial / community only) ---- */
+  --slate:       #4A5568;
+  --amber:       #B45309;
+  --plum:        #6B3F5E;
+  --forest:      #2D4A3E;
+  --trust-blue:  #317BB8;
+
+  /* ---- Neutrals ---- */
+  --cream:        #D9CFB8;
+  --gray:         #404040;
+  --french-gray:  #BABCC7;
+
+  /* ---- Dark text tones for AA on light tints ---- */
+  --text-dark-red:    #9A0E10;
+  --text-dark-orange: #8A3700;
+  --text-dark-green:  #005C45;
+
+  /* ---- Typography ---- */
+  --sans: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extrabold:800;
+
+  --fs-xs:   10px;
+  --fs-sm:   12px;
+  --fs-base: 14px;
+  --fs-md:   16px;
+  --fs-lg:   18px;
+  --fs-xl:   24px;
+  --fs-2xl:  32px;
+  --fs-3xl:  40px;
+  --fs-hero: 72px;
+
+  --tracking-h1:    -0.035em;
+  --tracking-h2:    -0.02em;
+  --tracking-body:  -0.005em;
+  --tracking-mono:  -0.02em;
+  --tracking-label: 0.14em;
+
+  --lh-tight: 0.95;
+  --lh-snug:  1.15;
+  --lh-body:  1.5;
+
+  /* ---- Spacing (4 px scale) ---- */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   48px;
+  --space-2xl:  80px;
+  --space-section:        96px;
+  --space-section-mobile: 64px;
+
+  /* ---- Corner radius (4-step) ---- */
+  --radius-none: 0;
+  --radius-sm:   4px;
+  --radius-md:   14px;
+  --radius-pill: 999px;
+  --radius-score-badge: 10px;
+
+  /* ---- Elevation ---- */
+  --elevation-0: none;
+  --elevation-1: 0 2px 6px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --elevation-2: 0 8px 24px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.05);
+  --elevation-3: 0 20px 60px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+
+  /* ---- Motion ---- */
+  --ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-slow:  cubic-bezier(0.4, 0, 0.2, 1);
+
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+
+  /* ---- Highlight (<mark>) ---- */
+  --highlight-fill:    rgba(204,20,23,0.18);
+  --highlight-padding: 1px 4px;
+  --highlight-radius:  2px;
+}
+
+/* Reduced-motion safety */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}
