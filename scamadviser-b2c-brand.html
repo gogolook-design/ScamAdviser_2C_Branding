@@ -169,15 +169,15 @@
 
   /* ============ HERO ============ */
   .hero {
-    background: var(--ink);
-    color: var(--warm-white);
+    background: var(--warm-grey);
+    color: var(--ink);
     min-height: 100vh;
     padding: 32px 48px 48px;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
   }
   .nav {
     display: flex; justify-content: space-between; align-items: center;
@@ -374,7 +374,7 @@
     font-size: 14px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--signal-red);
+    color: var(--red);
     display: flex; align-items: center; gap: 14px;
   }
   .hero-label .dot {
@@ -393,17 +393,8 @@
     line-height: 0.88;
     letter-spacing: -0.055em;
     text-transform: lowercase;
-    color: var(--warm-white);
+    color: var(--ink);
     min-height: 2em;
-  }
-  .hero h1 em {
-    color: var(--signal-red);
-  }
-  .hero h1 em::after {
-    background: var(--signal-red);
-  }
-  .hero h1 .slash {
-    color: var(--signal-red);
   }
   .hero h1 .slash {
     color: var(--red);
@@ -437,7 +428,7 @@
     gap: 48px;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.18);
+    border-top: 1px solid rgba(0,0,0,0.12);
     text-align: left;
     width: 100%;
   }
@@ -445,8 +436,8 @@
     font-size: 18px;
     line-height: 1.5;
     max-width: 560px;
-    color: var(--warm-white);
-    opacity: 0.82;
+    color: var(--ink);
+    opacity: 0.75;
     font-weight: 400;
   }
   .hero-meta {
@@ -454,10 +445,10 @@
     font-size: 14px;
     letter-spacing: 0.1em;
     line-height: 1.9;
-    color: rgba(255,255,255,0.7);
+    color: rgba(0,0,0,0.65);
     text-transform: uppercase;
   }
-  .hero-meta strong { color: var(--warm-white); font-weight: 600; }
+  .hero-meta strong { color: var(--ink); font-weight: 600; }
 
   .ticker {
     position: absolute;
@@ -3077,7 +3068,7 @@
   <section class="hero" id="hero">
     <div class="grain"></div>
     <div class="nav">
-      <div class="logo-mark"><div class="logo-svg"><img src="project/assets/sa-logo-white.png" alt="ScamAdviser" style="height:28px;width:auto;display:block;"></div></div>
+      <div class="logo-mark"><div class="logo-svg"><img src="project/assets/sa-logo.png" alt="ScamAdviser" style="height:28px;width:auto;display:block;"></div></div>
       <div>Brand Exploration · B2C Pivot · Rev. 05.2026</div>
     </div>
 
