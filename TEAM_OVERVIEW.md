@@ -197,7 +197,7 @@ GitHub Pages auto-deploys from `main` branch. Every push that touches `scamadvis
 
 https://gogolook-design.github.io/ScamAdviser_2C_Branding/scamadviser-b2c-brand.html
 
-The password gate is client-side only (sessionStorage). Passwords live in the JS at the bottom of the HTML file: `gogolook2026`, `1234`.
+The password gate is client-side only (sessionStorage). Passwords live in the JS at the bottom of the HTML file.
 
 ---
 

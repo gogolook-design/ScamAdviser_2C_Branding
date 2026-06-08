@@ -3,7 +3,7 @@
 The living source of truth for the **ScamAdviser** consumer pivot. Single-page HTML guideline + a packaged set of Claude Code skills the team can drop into their own environments.
 
 **Live guideline:** https://gogolook-design.github.io/ScamAdviser_2C_Branding/scamadviser-b2c-brand.html
-**Password:** `gogolook2026` (or `1234`)
+**Password:** *(ask the team)*
 
 ---
 

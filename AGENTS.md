@@ -156,6 +156,6 @@ Two distinct marks, two distinct jobs. **Don't substitute.**
 
 - The primary file is `scamadviser-b2c-brand.html` at root — this is the latest version
 - `project/ScamAdviser B2C Brand Guideline.html` is an earlier draft; refer to root file for current state
-- The login gate uses password `gogolook2026` or `1234` (session-based, sessionStorage)
+- The login gate is session-based (sessionStorage) — passwords are in the HTML JS
 - The page has a sticky mini-nav with 9 sections: Hero, The Shift, Logo, Color, Type, Voice, Mood, UI, Taglines
 - Moodboard section (06) is currently a "Coming soon" placeholder
