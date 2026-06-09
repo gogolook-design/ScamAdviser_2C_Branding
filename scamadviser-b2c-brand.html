@@ -32,6 +32,12 @@
     --trust-blue-light: rgba(107,63,94,0.12);
     --sans: 'Inter', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', 'SF Mono', monospace;
+    /* Motion tokens */
+    --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-slow: cubic-bezier(0.4, 0, 0.2, 1);
+    --dur-fast: 120ms;
+    --dur-base: 200ms;
+    --dur-slow: 320ms;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -302,7 +308,7 @@
     align-items: center;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.82;
@@ -316,7 +322,7 @@
   .sp-msg { display: flex; gap: 10px; align-items: flex-start; }
   .sp-msg .role {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 3px 7px;
@@ -346,12 +352,12 @@
     font-size: 34px; font-weight: 900; color: var(--signal-red);
     letter-spacing: -0.05em; line-height: 1; text-align: center;
   }
-  .sp-verdict .lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.78; }
+  .sp-verdict .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.78; }
   .sp-verdict .v { font-size: 15px; font-weight: 700; letter-spacing: -0.015em; margin-top: 2px; color: var(--signal-red); }
   .sp-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; padding-left: 48px; }
   .sp-chip {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     padding: 4px 8px;
     border-radius: 999px;
     background: rgba(255,255,255,0.06);
@@ -368,7 +374,7 @@
   .sp-input .caret { width: 2px; height: 14px; background: var(--signal-red); animation: blink 1s infinite; }
   @keyframes blink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
   .sp-input .ph { font-size: 13px; opacity: 0.72; flex: 1; }
-  .sp-input .send { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72; }
+  .sp-input .send { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72; }
   .hero-label {
     font-family: var(--mono);
     font-size: 14px;
@@ -508,7 +514,7 @@
     top: 50%; left: 50%;
     transform: translate(-50%, calc(-50% + 40px));
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.3em;
     writing-mode: vertical-rl;
     opacity: 0.72;
@@ -587,7 +593,7 @@
   .pillar:hover { background: var(--anti-flash); }
   .pillar .num {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     opacity: 0.82;
   }
@@ -644,7 +650,7 @@
     padding: 16px;
     color: var(--ink);
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     position: relative;
@@ -685,11 +691,11 @@
     justify-content: space-between;
     position: relative;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
   }
   .swatch .name { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
-  .swatch .hex { font-size: 11px; letter-spacing: 0.05em; opacity: 0.7; }
-  .swatch .role { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.72; }
+  .swatch .hex { font-size: 12px; letter-spacing: 0.05em; opacity: 0.7; }
+  .swatch .role { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.72; }
 
   .risk-ladder {
     margin-top: 96px;
@@ -737,7 +743,7 @@
   .ladder-action {
     padding: 20px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-align: right;
@@ -758,7 +764,7 @@
   }
   .type-sample .label {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.7;
@@ -794,7 +800,7 @@
   .type-weight-row:last-child { border-bottom: 0; }
   .type-weight-row .w-label {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     opacity: 0.7;
   }
@@ -821,7 +827,7 @@
   }
   .h-row .spec {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.82;
@@ -855,7 +861,7 @@
     background: var(--red);
     color: var(--white);
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -872,7 +878,7 @@
   .tone-row > div:last-child { border-right: 0; }
   .tone-row .scenario {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     background: var(--paper);
@@ -889,7 +895,7 @@
     position: absolute;
     top: 8px; left: 24px;
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.15em;
     opacity: 0.62;
   }
@@ -906,7 +912,7 @@
     position: absolute;
     top: 8px; left: 24px;
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.15em;
     color: var(--red);
     font-weight: 500;
@@ -976,7 +982,7 @@
     overflow: hidden;
     display: flex; flex-direction: column; justify-content: space-between;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -1040,7 +1046,7 @@
   }
   .photo-heads h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 16px;
@@ -1104,7 +1110,7 @@
   }
   .photo-slot .slot-label {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.62;
@@ -1124,12 +1130,12 @@
     min-height: 420px;
     border-radius: 12px;
     overflow: hidden;
-    background: var(--white);
-    border: 2px solid var(--ink);
+    background: var(--warm-grey);
+    border: 1px solid var(--ink);
   }
   .photo-cat-info {
     padding: 36px 32px;
-    background: var(--warm-grey);
+    background: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1154,7 +1160,7 @@
   .photo-cat-style strong, .photo-cat-keywords strong {
     display: block;
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -1179,7 +1185,7 @@
     position: absolute;
     left: 0;
     opacity: 0.4;
-    font-size: 11px;
+    font-size: 12px;
   }
   .photo-cat-env {
     display: block;
@@ -1196,7 +1202,7 @@
     border-top: 1px solid rgba(0,0,0,0.08);
   }
   .photo-cat-keywords span {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.55;
     color: var(--ink);
     opacity: 0.5;
@@ -1226,7 +1232,7 @@
   .icon-spec-item strong {
     display: block;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.7;
@@ -1258,7 +1264,7 @@
   }
   .icon-cell .icon-name {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.82;
@@ -1310,7 +1316,7 @@
   .bento-editorial .italic { font-style: italic; font-weight: 800; }
   .bento-meta {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.35;
     opacity: 0.9;
     max-width: 60%;
@@ -1340,7 +1346,7 @@
   .bento-cell.dark .bento-stat-row .num { color: var(--red); }
   .bento-stat-row .lbl {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 12px;
     opacity: 0.7;
   }
   .bento-substats {
@@ -1366,7 +1372,7 @@
     letter-spacing: -0.03em;
   }
   .bento-substat .lbl {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.2;
     opacity: 0.85;
   }
@@ -1405,7 +1411,7 @@
     justify-content: center;
     color: rgba(255,255,255,0.7);
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     z-index: 2;
@@ -1443,12 +1449,12 @@
     color: var(--white);
   }
   .bento-cell.paper {
-    background: var(--warm-grey);
+    background: var(--white);
     color: var(--ink);
   }
   .bento-cell .bento-label {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -1525,7 +1531,7 @@
     margin-top: 80px;
     margin-bottom: 16px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -1551,7 +1557,7 @@
   }
   .chart-pattern-label {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -1566,7 +1572,7 @@
   .chart-pattern-canvas svg { width: 100%; height: auto; max-height: 140px; }
   .chart-pattern-use {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.04em;
     line-height: 1.5;
     opacity: 0.7;
@@ -1591,7 +1597,7 @@
   .color-logic-cell:last-child { border-right: none; }
   .color-logic-cell h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 14px;
@@ -1614,7 +1620,7 @@
   }
   .color-logic-cell .rule {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.04em;
     opacity: 0.78;
     margin-top: 16px;
@@ -1709,7 +1715,7 @@
   .ext-header .ext-brand {
     display: flex; align-items: center; gap: 8px;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.85;
@@ -1724,7 +1730,7 @@
   .ext-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 14px; }
   .ext-url {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     background: var(--paper);
     padding: 10px 12px;
     border-radius: 6px;
@@ -1754,7 +1760,7 @@
   .ext-score .info { flex: 1; }
   .ext-score .info .label {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.78;
@@ -1825,7 +1831,7 @@
   .phone-status {
     padding: 14px 20px 0;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     display: flex;
     justify-content: space-between;
@@ -1848,7 +1854,7 @@
   .phone-h1 .lc { text-transform: lowercase; }
   .phone-caption {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gray);
@@ -1859,11 +1865,13 @@
     border-radius: 14px;
     padding: 14px;
     display: grid;
-    grid-template-columns: 40px 1fr auto;
-    gap: 12px;
+    grid-template-columns: 40px 1fr;
+    gap: 4px 12px;
     align-items: center;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
+  .phone-check-card .tag { grid-column: 2; justify-self: start; }
+  .phone-check-card .score-badge { grid-row: 1 / 3; }
   .score-badge {
     width: 40px; height: 40px; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
@@ -1886,13 +1894,13 @@
   }
   .phone-check-card .info .when {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     color: var(--gray);
     margin-top: 2px;
   }
   .phone-check-card .tag {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.06em;
     padding: 4px 6px;
     border-radius: 4px;
@@ -1925,7 +1933,7 @@
   }
   .phone-community .tiny {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.8;
@@ -1945,7 +1953,7 @@
     display: flex; justify-content: space-between;
     box-shadow: 0 -1px 2px rgba(0,0,0,0.04);
   }
-  .phone-tab .t { font-size: 10px; opacity: 0.82; font-weight: 600; }
+  .phone-tab .t { font-size: 12px; opacity: 0.82; font-weight: 600; }
   .phone-tab .t.active { opacity: 1; color: var(--red); }
 
   .ui-score { grid-column: span 7; }
@@ -1971,7 +1979,7 @@
   }
   .score-left h6 {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -2030,7 +2038,7 @@
 
   .score-right h6 {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -2052,7 +2060,7 @@
     width: 18px; height: 18px;
     border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800;
+    font-size: 12px; font-weight: 800;
     color: white;
     margin-top: 2px;
   }
@@ -2063,7 +2071,7 @@
   .factor .txt .d { font-size: 12px; opacity: 0.7; line-height: 1.4; margin-top: 2px; }
   .factor .val {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     color: var(--gray);
     white-space: nowrap;
   }
@@ -2093,7 +2101,7 @@
   .social-header {
     display: flex; justify-content: space-between; align-items: center;
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     z-index: 2;
@@ -2123,7 +2131,7 @@
   }
   .social-foot .label {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.85;
@@ -2155,7 +2163,7 @@
   }
   .comm-header .stat {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     color: var(--gray);
   }
@@ -2195,7 +2203,7 @@
   }
   .report .who .flair {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.05em;
     color: var(--trust-blue);
@@ -2212,7 +2220,7 @@
   }
   .report .meta {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.05em;
     color: var(--gray);
     margin-top: 4px;
@@ -2220,7 +2228,7 @@
   }
   .report .verdict {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.1em;
     padding: 4px 8px;
@@ -2235,7 +2243,7 @@
   .safe-card {
     width: 100%;
     background: var(--safe-green);
-    color: var(--ink);
+    color: var(--white);
     border-radius: 14px;
     padding: 32px 28px;
     min-height: 340px;
@@ -2245,19 +2253,17 @@
     position: relative;
     overflow: hidden;
   }
-  .safe-card::before {
-    content: '✓';
+  .safe-card::after {
+    content: '';
     position: absolute;
-    right: -10px; bottom: -40px;
-    font-size: 220px;
-    font-weight: 900;
-    color: white;
-    opacity: 0.12;
-    line-height: 1;
+    right: -16px; bottom: -24px;
+    width: 200px; height: 200px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpolyline points='40 144 96 200 216 80' fill='none' stroke='white' stroke-width='20' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: 0.15;
   }
   .safe-card .top {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.85;
@@ -2315,7 +2321,7 @@
     border-top: 1px solid rgba(0,0,0,0.12);
     display: flex; justify-content: space-between;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.82;
@@ -2350,7 +2356,7 @@
     text-decoration: none;
     color: var(--ink);
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.02em;
     opacity: 0.62;
@@ -2376,7 +2382,7 @@
     background: var(--ink);
     color: var(--white);
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     white-space: nowrap;
@@ -2417,7 +2423,7 @@
   }
   .logo-subhead .n {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--red);
@@ -2460,7 +2466,7 @@
   }
   .lockup .lk-caption {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.85;
@@ -2497,7 +2503,7 @@
   .lockup.red .mark-box .slash, .lockup.dark .mark-box .slash { color: var(--white); }
   .lockup .mark-sub {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.78;
@@ -2529,7 +2535,7 @@
     content: 'x';
     position: absolute;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     color: var(--red);
   }
   .clear-space .demo-inner::before { top: -18px; left: -10px; }
@@ -2543,7 +2549,7 @@
   .clear-space .demo .mark .slash { color: var(--red); display: inline-block; transform: skewX(-10deg); margin: 0 0.02em; }
   .cs-copy .spec {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -2601,7 +2607,7 @@
   .ds-block.white { background: var(--white); }
   .ds-label {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -2624,7 +2630,7 @@
     padding-top: 16px;
     border-top: 1px solid rgba(0,0,0,0.08);
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.04em;
     line-height: 1.5;
     opacity: 0.78;
@@ -2652,14 +2658,14 @@
   }
   .ds-spec-row.head > span {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.7;
   }
   .ds-spec-row .var {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);
@@ -2674,7 +2680,7 @@
   }
   .ds-spec-row .token {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.04em;
     line-height: 1.5;
     opacity: 0.78;
@@ -2731,7 +2737,7 @@
     padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.78;
@@ -2766,7 +2772,7 @@
     line-height: 1;
   }
   .ds-radius-item .meta .n {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.78;
@@ -2780,7 +2786,7 @@
   }
   .ds-radius-where {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.55;
     opacity: 0.78;
   }
@@ -2801,7 +2807,7 @@
     gap: 16px;
     align-items: center;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
   }
   .ds-spacing-row .lbl { opacity: 0.78; letter-spacing: 0.06em; }
   .ds-spacing-row .bar { height: 14px; background: var(--ink); }
@@ -2835,7 +2841,7 @@
   }
   .ds-motion-meta {
     display: flex; justify-content: space-between;
-    font-family: var(--mono); font-size: 10px;
+    font-family: var(--mono); font-size: 12px;
     letter-spacing: 0.06em; opacity: 0.7; margin-top: 6px;
   }
 
@@ -2852,7 +2858,7 @@
   .ds-icon-cell svg { width: 28px; height: 28px; }
   .ds-icon-spec {
     display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px;
-    font-family: var(--mono); font-size: 11px;
+    font-family: var(--mono); font-size: 12px;
     margin-top: 8px;
   }
   .ds-icon-spec dt { opacity: 0.78; letter-spacing: 0.06em; }
@@ -2872,7 +2878,7 @@
     display: flex; flex-direction: column;
     justify-content: flex-end;
     padding: 18px;
-    font-family: var(--mono); font-size: 10px;
+    font-family: var(--mono); font-size: 12px;
     letter-spacing: 0.06em;
   }
   .ds-elev-card .v { font-weight: 700; font-size: 14px; letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; color: var(--ink); }
@@ -2908,7 +2914,7 @@
     color: var(--white);
   }
   .ds-highlight-demo .label {
-    font-family: var(--mono); font-size: 10px;
+    font-family: var(--mono); font-size: 12px;
     letter-spacing: 0.12em; text-transform: uppercase;
     opacity: 0.7; margin-bottom: -4px;
   }
@@ -2922,7 +2928,7 @@
     padding: 16px; display: flex; flex-direction: column; gap: 8px;
   }
   .ds-sound-cell .nm {
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; font-weight: 700;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; font-weight: 700;
     color: var(--signal-red);
   }
   .ds-sound-cell .use {
@@ -2931,7 +2937,7 @@
   }
   .ds-sound-cell .play {
     align-self: flex-start;
-    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
     padding: 6px 12px; border-radius: 999px;
     background: rgba(255,255,255,0.12); color: var(--warm-white);
     border: 1px solid rgba(255,255,255,0.18);
@@ -2978,7 +2984,7 @@
     position: fixed; right: 20px; bottom: 20px; z-index: 50;
     background: var(--ink); color: var(--warm-white);
     padding: 10px 16px; border-radius: 999px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
     border: 1px solid var(--ink); cursor: pointer;
     box-shadow: 0 12px 28px rgba(0,0,0,0.22);
     display: flex; align-items: center; gap: 8px;
@@ -3005,7 +3011,7 @@
   }
   .ds-input:focus { outline: 2px solid var(--red); outline-offset: 2px; border-color: var(--ink); }
   .ds-input-row { display: flex; flex-direction: column; gap: 6px; }
-  .ds-input-row label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; }
+  .ds-input-row label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.78; }
 
   @media (max-width: 900px) {
     .ds-block.span-4, .ds-block.span-6, .ds-block.span-8 { grid-column: span 12; }
@@ -3039,7 +3045,7 @@
     justify-content: space-between;
     min-height: 360px;
   }
-  .tagline-main .spec { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.8; }
+  .tagline-main .spec { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.8; }
   .tagline-main .big {
     font-size: clamp(44px, 6vw, 88px);
     font-weight: 900;
@@ -3048,7 +3054,7 @@
     text-transform: lowercase;
   }
   .tagline-main .big .slash { color: var(--ink); display: inline-block; transform: skewX(-10deg); margin: 0 0.02em; }
-  .tagline-main .note { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; opacity: 0.88; line-height: 1.5; max-width: 320px; }
+  .tagline-main .note { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; opacity: 0.88; line-height: 1.5; max-width: 320px; }
   .tagline-list { display: flex; flex-direction: column; }
   .tag-row {
     padding: 28px 32px;
@@ -3060,7 +3066,7 @@
     gap: 8px;
   }
   .tag-row:last-child { border-bottom: 0; }
-  .tag-row .ctx { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.72; }
+  .tag-row .ctx { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.72; }
   .tag-row .line {
     font-size: 22px;
     font-weight: 600;
@@ -3078,7 +3084,7 @@
   }
   .tier-head .n {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     opacity: 0.72;
@@ -3096,6 +3102,42 @@
     max-width: 360px;
     text-align: right;
     line-height: 1.4;
+  }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: opacity, transform;
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.97);
+    will-change: opacity, transform;
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-16px);
+    will-change: opacity, transform;
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(16px);
+    will-change: opacity, transform;
+  }
+  .revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+    transition-delay: var(--stagger, 0ms);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-scale, .reveal-left, .reveal-right {
+      opacity: 1 !important;
+      transform: none !important;
+      will-change: auto;
+    }
+    .revealed { transition: none !important; }
   }
 
   /* Responsive */
@@ -3118,7 +3160,7 @@
     .mc-1, .mc-2, .mc-3, .mc-4, .mc-5, .mc-6, .mc-7, .mc-8 { grid-column: span 4; }
     .ratio-seg { padding: 10px; }
     .ratio-seg .label-num { font-size: 24px; }
-    .ratio-seg .label-stack span:last-child { font-size: 10px; }
+    .ratio-seg .label-stack span:last-child { font-size: 12px; }
     .type-specimen { grid-template-columns: 1fr; }
     .type-display { font-size: 120px; }
     .ui-grid { grid-template-columns: 1fr; }
@@ -3427,7 +3469,7 @@
 
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(0,0,0,0.12); margin-top: 32px; overflow: hidden;">
         <div style="background: #EFEBE2; color: #0A0A0A; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(0,0,0,0.1);">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600;">30% · Canvas</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600;">30% · Canvas</div>
           <div>
             <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">Warm Grey</div>
             <div style="font-family: var(--mono); font-size: 12px; opacity: 0.78; margin-bottom: 10px;">#EFEBE2</div>
@@ -3435,7 +3477,7 @@
           </div>
         </div>
         <div style="background: #FFFFF8; color: #0A0A0A; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(0,0,0,0.08);">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600;">30% · Surface</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600;">30% · Surface</div>
           <div>
             <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">Warm White</div>
             <div style="font-family: var(--mono); font-size: 12px; opacity: 0.78; margin-bottom: 10px;">#FFFFF8</div>
@@ -3443,7 +3485,7 @@
           </div>
         </div>
         <div style="background: #CC1417; color: #fff; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(255,255,255,0.15);">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 600;">20% · Focus</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 600;">20% · Focus</div>
           <div>
             <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">ScamAdviser Red</div>
             <div style="font-family: var(--mono); font-size: 12px; opacity: 0.82; margin-bottom: 10px;">#CC1417</div>
@@ -3451,7 +3493,7 @@
           </div>
         </div>
         <div style="background: #1A1A1A; color: #fff; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.78); font-weight: 600;">20% · Anchor</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.78); font-weight: 600;">20% · Anchor</div>
           <div>
             <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">Ink Black</div>
             <div style="font-family: var(--mono); font-size: 12px; opacity: 0.78; margin-bottom: 10px;">#1A1A1A</div>
@@ -3469,7 +3511,7 @@
 
       <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--ink);">
         <div style="border-right: 1px solid var(--ink); border-top: 3px solid #4A5568; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option A · Slate</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option A · Slate</div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="height: 56px; background: #4A5568; border-radius: 4px;"></div>
             <div style="height: 32px; background: #718096; border-radius: 4px;"></div>
@@ -3479,10 +3521,10 @@
             <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#4A5568 · Slate</div>
             <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Cool, editorial, credible. Works well for community badges and data labels. No risk-state confusion.</div>
           </div>
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: data, editorial</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: data, editorial</div>
         </div>
         <div style="border-right: 1px solid var(--ink); border-top: 3px solid #B45309; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option B · Amber</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option B · Amber</div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="height: 56px; background: #B45309; border-radius: 4px;"></div>
             <div style="height: 32px; background: #D97706; border-radius: 4px;"></div>
@@ -3492,10 +3534,10 @@
             <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#B45309 · Amber</div>
             <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Warm, bold, pairs naturally with the grey canvas. Energetic without crossing into the orange-warning territory.</div>
           </div>
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: campaign, social</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: campaign, social</div>
         </div>
         <div style="border-right: 1px solid var(--ink); border-top: 3px solid #6B3F5E; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option C · Plum</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option C · Plum</div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="height: 56px; background: #6B3F5E; border-radius: 4px;"></div>
             <div style="height: 32px; background: #9B6B8E; border-radius: 4px;"></div>
@@ -3505,10 +3547,10 @@
             <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#6B3F5E · Plum</div>
             <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Distinctive and unlike anything in the risk ladder. Skews editorial and peer-community — high contrast against warm grey.</div>
           </div>
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: community, peer</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: community, peer</div>
         </div>
         <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid var(--ink); border-top: 3px solid #2D4A3E;">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option D · Forest</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option D · Forest</div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="height: 56px; background: #2D4A3E; border-radius: 4px;"></div>
             <div style="height: 32px; background: #4A7C68; border-radius: 4px;"></div>
@@ -3518,10 +3560,10 @@
             <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#2D4A3E · Forest</div>
             <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Deep, grounded, premium feel. Dark enough to not be confused with the safe-green functional colour in the risk ladder.</div>
           </div>
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: trust, premium</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: trust, premium</div>
         </div>
         <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #317BB8;">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #317BB8; font-weight: 700;">Option E · Trust Blue</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #317BB8; font-weight: 700;">Option E · Trust Blue</div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="height: 56px; background: #317BB8; border-radius: 4px;"></div>
             <div style="height: 32px; background: #4D96D4; border-radius: 4px;"></div>
@@ -3531,7 +3573,7 @@
             <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#317BB8 · Trust Blue</div>
             <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Original brand secondary. Carries existing recognition and pairs naturally with the red. Strong community and peer-trust associations.</div>
           </div>
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: #317BB8; margin-top: auto;">Good for: community</div>
+          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: #317BB8; margin-top: auto;">Good for: community</div>
         </div>
       </div>
 
@@ -3549,31 +3591,31 @@
           <span class="meta">Trust score → color → verdict</span>
         </h3>
         <div class="ladder-row">
-          <div class="ladder-score" style="background: #EE3E41;">00<br><span style="font-size: 10px; opacity: 0.88;">–39</span></div>
+          <div class="ladder-score" style="background: #EE3E41;">00<br><span style="font-size: 12px; opacity: 0.88;">–39</span></div>
           <div class="ladder-label">Dangerous</div>
           <div class="ladder-example">fancy-luxury-deals-official-outlet.biz</div>
           <div class="ladder-action">Don't click</div>
         </div>
         <div class="ladder-row">
-          <div class="ladder-score" style="background: #FF6712;">40<br><span style="font-size: 10px; opacity: 0.88;">–59</span></div>
+          <div class="ladder-score" style="background: #FF6712;">40<br><span style="font-size: 12px; opacity: 0.88;">–59</span></div>
           <div class="ladder-label">Likely Dangerous</div>
           <div class="ladder-example">crypto-giveaway-elon-musk.net</div>
           <div class="ladder-action">Sketchy — back out</div>
         </div>
         <div class="ladder-row">
-          <div class="ladder-score" style="background: #FF8A00;">60<br><span style="font-size: 10px; opacity: 0.88;">–69</span></div>
+          <div class="ladder-score" style="background: #FF8A00;">60<br><span style="font-size: 12px; opacity: 0.88;">–69</span></div>
           <div class="ladder-label">Warning</div>
           <div class="ladder-example">newshop2025.store</div>
           <div class="ladder-action">Proceed carefully</div>
         </div>
         <div class="ladder-row">
-          <div class="ladder-score" style="background: #63B100;">70<br><span style="font-size: 10px; opacity: 0.88;">–89</span></div>
+          <div class="ladder-score" style="background: #63B100;">70<br><span style="font-size: 12px; opacity: 0.88;">–89</span></div>
           <div class="ladder-label">Likely Safe</div>
           <div class="ladder-example">smaller-indie-brand.com</div>
           <div class="ladder-action">Probably fine</div>
         </div>
         <div class="ladder-row">
-          <div class="ladder-score" style="background: #00A67E;">90<br><span style="font-size: 10px; opacity: 0.88;">–100</span></div>
+          <div class="ladder-score" style="background: #00A67E;">90<br><span style="font-size: 12px; opacity: 0.88;">–100</span></div>
           <div class="ladder-label">Safe</div>
           <div class="ladder-example">nytimes.com</div>
           <div class="ladder-action">Vibe check passed</div>
@@ -4150,7 +4192,7 @@
 
           <!-- 2. Editorial headline — light -->
           <div class="bento-cell light" style="position: relative;">
-            <div class="bento-meta" style="font-family: var(--sans); font-size: 11px; line-height: 1.35;">Peer-Powered<br>Scam Detection<br>Network</div>
+            <div class="bento-meta" style="font-family: var(--sans); font-size: 12px; line-height: 1.35;">Peer-Powered<br>Scam Detection<br>Network</div>
             <div class="bento-editorial" style="margin-top: auto;">we<br>know<br>digital<span class="accent">/</span><br>bs.</div>
             <div class="bento-corner br" style="font-size: 14px;">↗</div>
           </div>
@@ -4203,7 +4245,7 @@
             <div style="display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 0;">
               <!-- Top bar: verified -->
               <div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--white); opacity: 0.85; margin-bottom: 4px;">
+                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--white); opacity: 0.85; margin-bottom: 4px;">
                   <span>VERIFIED</span><span>95%</span>
                 </div>
                 <div style="height: 22px; background: rgba(255,255,255,0.18); position: relative;">
@@ -4212,15 +4254,24 @@
               </div>
               <!-- Mid bar: pending -->
               <div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: var(--white); opacity: 0.85; margin-bottom: 4px;">
+                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--white); opacity: 0.85; margin-bottom: 4px;">
                   <span>PENDING</span><span>55%</span>
                 </div>
                 <div style="height: 22px; background: rgba(255,255,255,0.18); position: relative;">
                   <div style="height: 100%; width: 55%; background: rgba(26,26,26,0.55);"></div>
                 </div>
               </div>
+              <!-- History bar -->
+              <div>
+                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--white); opacity: 0.85; margin-bottom: 4px;">
+                  <span>HISTORY</span><span>78%</span>
+                </div>
+                <div style="height: 22px; background: rgba(255,255,255,0.18); position: relative;">
+                  <div style="height: 100%; width: 78%; background: rgba(26,26,26,0.75);"></div>
+                </div>
+              </div>
               <!-- Total -->
-              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; opacity: 0.85; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.25);">
+              <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; opacity: 0.85; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.25);">
                 <span>REPORTS</span>
                 <span>+2,341 today</span>
               </div>
@@ -4277,7 +4328,7 @@
             <div class="chart-pattern-label">01 · Stat Tile</div>
             <div class="chart-pattern-canvas" style="justify-content: flex-start; flex-direction: column; align-items: flex-start; gap: 4px;">
               <div style="font-family: var(--mono); font-weight: 700; font-size: 56px; letter-spacing: -0.04em; line-height: 0.95;">2.1<span style="color: var(--red); opacity: 0.7;">M</span></div>
-              <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; opacity: 0.72; text-transform: uppercase;">Active users · monthly</div>
+              <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; opacity: 0.72; text-transform: uppercase;">Active users · monthly</div>
             </div>
             <div class="chart-pattern-use">Hero metric. One number that defines the screen. Always JetBrains Mono 700.</div>
           </div>
@@ -4286,22 +4337,22 @@
           <div class="chart-pattern">
             <div class="chart-pattern-label">02 · Trust Score Gauge</div>
             <div class="chart-pattern-canvas">
-              <svg viewBox="0 0 220 160" style="max-width: 240px; max-height: 160px;">
-                <!-- 5 risk-ladder arcs -->
-                <path d="M 20 110 A 90 90 0 0 1 47 47" stroke="#EE3E41" stroke-width="14" fill="none"/>
-                <path d="M 47 47 A 90 90 0 0 1 84 22" stroke="#FF6712" stroke-width="14" fill="none"/>
-                <path d="M 84 22 A 90 90 0 0 1 136 22" stroke="#FF8A00" stroke-width="14" fill="none"/>
-                <path d="M 136 22 A 90 90 0 0 1 173 47" stroke="#63B100" stroke-width="14" fill="none"/>
-                <path d="M 173 47 A 90 90 0 0 1 200 110" stroke="#00A67E" stroke-width="14" fill="none"/>
-                <!-- Scale anchors -->
-                <text x="20" y="128" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1A1A" opacity="0.7" letter-spacing="0.06em">0</text>
-                <text x="200" y="128" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1A1A" opacity="0.7" letter-spacing="0.06em">100</text>
-                <!-- Needle pointing at 92: angle = 180° × (1 − 92/100) = 14.4° from horizontal right -->
-                <line x1="110" y1="110" x2="187.2" y2="89.7" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="110" cy="110" r="6" fill="#1A1A1A"/>
-                <circle cx="110" cy="110" r="2.2" fill="#FFFFF8"/>
-                <!-- Score label, clear of pivot -->
-                <text x="110" y="152" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="22" fill="#1A1A1A" letter-spacing="-0.04em">92<tspan font-size="12" fill="#00A67E" letter-spacing="0" font-weight="500">/100</tspan></text>
+              <svg viewBox="0 0 240 176" style="max-width: 260px;">
+                <!-- 5 equal gauge segments (36° each, thinner ring) -->
+                <path d="M 25.0 130.0 A 95 95 0 0 1 41.7 76.2 L 62.3 90.4 A 70 70 0 0 0 50.0 130.0 Z" fill="#EE3E41"/>
+                <path d="M 44.6 72.2 A 95 95 0 0 1 88.3 40.4 L 96.6 64.0 A 70 70 0 0 0 64.5 87.4 Z" fill="#FF6712"/>
+                <path d="M 93.0 38.9 A 95 95 0 0 1 147.0 38.9 L 139.9 62.9 A 70 70 0 0 0 100.1 62.9 Z" fill="#FF8A00"/>
+                <path d="M 151.7 40.4 A 95 95 0 0 1 195.4 72.2 L 175.5 87.4 A 70 70 0 0 0 143.4 64.0 Z" fill="#63B100"/>
+                <path d="M 198.3 76.2 A 95 95 0 0 1 215.0 130.0 L 190.0 130.0 A 70 70 0 0 0 177.7 90.4 Z" fill="#00A67E"/>
+                <!-- Needle (diamond) — score 92 -->
+                <polygon points="185.9,113.1 118.3,123.2 108.4,133.0 121.7,136.8" fill="#1A1A1A"/>
+                <circle cx="120" cy="130" r="6" fill="#1A1A1A"/>
+                <circle cx="120" cy="130" r="2.5" fill="#FFFFF8"/>
+                <!-- Scale labels -->
+                <text x="20" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#1A1A1A" opacity="0.5">0</text>
+                <text x="220" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#1A1A1A" opacity="0.5">100</text>
+                <!-- Score readout -->
+                <text x="120" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="22" fill="#1A1A1A" letter-spacing="-0.04em">92<tspan font-size="12" fill="#00A67E" font-weight="500">/100</tspan></text>
               </svg>
             </div>
             <div class="chart-pattern-use">Trust score readout. Risk-ladder colors required — never substitute SA Red.</div>
@@ -4318,7 +4369,7 @@
                 <div style="flex: 31; background: #63B100;"></div>
                 <div style="flex: 35; background: #00A67E;"></div>
               </div>
-              <div style="display: flex; font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; opacity: 0.78; justify-content: space-between;">
+              <div style="display: flex; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; opacity: 0.78; justify-content: space-between;">
                 <span>8% danger</span>
                 <span>26% caution</span>
                 <span>66% safe</span>
@@ -4341,17 +4392,30 @@
             <div class="chart-pattern-use">Single-metric over time. SA Red line + soft red area. No gridlines.</div>
           </div>
 
-          <!-- 5. Sparkline -->
+          <!-- 5. Vertical Bar Chart -->
           <div class="chart-pattern">
-            <div class="chart-pattern-label">05 · Sparkline</div>
-            <div class="chart-pattern-canvas" style="flex-direction: column; gap: 8px; align-items: flex-start;">
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <span style="font-family: var(--mono); font-weight: 700; font-size: 22px; letter-spacing: -0.02em;">+34%</span>
-                <svg viewBox="0 0 80 24" style="width: 80px; height: 24px;"><path d="M0 20 L10 18 L20 14 L30 16 L40 10 L50 12 L60 6 L70 8 L80 2" stroke="#CC1417" stroke-width="1.5" fill="none"/></svg>
+            <div class="chart-pattern-label">05 · Vertical Bar Chart</div>
+            <div class="chart-pattern-canvas" style="flex-direction: column; gap: 12px; align-items: stretch;">
+              <div style="display: flex; align-items: flex-end; gap: 4px; height: 80px;">
+                <div style="flex: 1; height: 42%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 58%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 35%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 65%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 48%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 72%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 55%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 60%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 78%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 85%; background: rgba(0,0,0,0.12); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 92%; background: var(--ink); border-radius: 3px 3px 0 0;"></div>
+                <div style="flex: 1; height: 100%; background: var(--red); border-radius: 3px 3px 0 0;"></div>
               </div>
-              <span style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; opacity: 0.72; text-transform: uppercase;">YoY · 12 months</span>
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; opacity: 0.72; text-transform: uppercase;">YoY · 12 months</span>
+                <span style="font-family: var(--mono); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--red);">+34%</span>
+              </div>
             </div>
-            <div class="chart-pattern-use">Inline trend next to a stat. No axis labels — context only.</div>
+            <div class="chart-pattern-use">Monthly trend. Final bar uses SA Red to spotlight the current period.</div>
           </div>
 
           <!-- 6. Comparison Bars -->
@@ -4359,15 +4423,15 @@
             <div class="chart-pattern-label">06 · Comparison Bars</div>
             <div class="chart-pattern-canvas" style="flex-direction: column; gap: 10px; align-items: stretch;">
               <div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; opacity: 0.78; margin-bottom: 4px;"><span>REPORTED</span><span style="color: var(--ink);">2,341</span></div>
+                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; opacity: 0.78; margin-bottom: 4px;"><span>REPORTED</span><span style="color: var(--ink);">2,341</span></div>
                 <div style="height: 10px; background: rgba(0,0,0,0.08);"><div style="height: 100%; width: 100%; background: #1A1A1A;"></div></div>
               </div>
               <div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; opacity: 0.78; margin-bottom: 4px;"><span>VERIFIED</span><span style="color: var(--red);">2,083</span></div>
+                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; opacity: 0.78; margin-bottom: 4px;"><span>VERIFIED</span><span style="color: var(--red);">2,083</span></div>
                 <div style="height: 10px; background: rgba(0,0,0,0.08);"><div style="height: 100%; width: 89%; background: #CC1417;"></div></div>
               </div>
               <div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; opacity: 0.78; margin-bottom: 4px;"><span>DISPUTED</span><span style="opacity: 0.78;">258</span></div>
+                <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; opacity: 0.78; margin-bottom: 4px;"><span>DISPUTED</span><span style="opacity: 0.78;">258</span></div>
                 <div style="height: 10px; background: rgba(0,0,0,0.08);"><div style="height: 100%; width: 11%; background: rgba(0,0,0,0.4);"></div></div>
               </div>
             </div>
@@ -4449,7 +4513,7 @@
 
         <!-- Phone: Home feed -->
         <div class="ui-card dark ui-phone">
-          <h3 style="color: rgba(255,255,255,0.7);">B — Mobile app · home</h3>
+          <h3>B — Mobile app · home</h3>
           <div class="title">Recent checks. Peer signal. Low friction.</div>
           <div class="stage">
             <div class="phone-frame">
@@ -4465,27 +4529,27 @@
                   </div>
                   <div class="phone-check-card">
                     <div class="score-badge danger">12</div>
+                    <div class="tag dd">scam</div>
                     <div class="info">
                       <div class="site">trust-bank-alert.info</div>
                       <div class="when">blocked · 9:34 am</div>
                     </div>
-                    <div class="tag dd">scam</div>
                   </div>
                   <div class="phone-check-card">
                     <div class="score-badge warn">58</div>
+                    <div class="tag ww">sus</div>
                     <div class="info">
                       <div class="site">newshop2025.store</div>
                       <div class="when">checked · yesterday</div>
                     </div>
-                    <div class="tag ww">sus</div>
                   </div>
                   <div class="phone-check-card">
                     <div class="score-badge safe">94</div>
+                    <div class="tag ss">safe</div>
                     <div class="info">
                       <div class="site">depop.com</div>
                       <div class="when">checked · yesterday</div>
                     </div>
-                    <div class="tag ss">safe</div>
                   </div>
                   <div class="phone-community">
                     <div class="tiny">Community alert · 2h ago</div>
@@ -4715,7 +4779,7 @@
               <span class="token">Inter 600 · 12px</span>
             </div>
             <div class="ds-spec-row">
-              <span class="var">MD <em style="font-style: italic; opacity: 0.72; font-size: 9px; letter-spacing: 0.08em; margin-left: 4px;">default</em></span>
+              <span class="var">MD <em style="font-style: italic; opacity: 0.72; font-size: 12px; letter-spacing: 0.08em; margin-left: 4px;">default</em></span>
               <span class="sample"><button class="sa-btn primary">Report scam</button></span>
               <span class="token">12 / 22</span>
               <span class="token">Inter 600 · 14px</span>
@@ -4953,7 +5017,7 @@
             <div style="display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; padding: 32px; background: var(--white); color: var(--ink); border-radius: 14px;">
               <!-- LEFT: enlarged score block -->
               <div style="display: flex; flex-direction: column; gap: 10px; min-width: 0;">
-                <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; opacity: 0.72; text-transform: uppercase;">Trust Score</div>
+                <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; opacity: 0.72; text-transform: uppercase;">Trust Score</div>
                 <div style="display: flex; align-items: baseline; gap: 8px;">
                   <div style="font-family: var(--mono); font-weight: 700; font-size: clamp(96px, 12vw, 144px); letter-spacing: -0.06em; line-height: 0.85; color: #EE3E41;">12</div>
                   <div style="font-family: var(--mono); font-size: 16px; opacity: 0.7; letter-spacing: -0.02em;">/100</div>
@@ -4962,7 +5026,7 @@
               <!-- RIGHT: verdict + CTAs -->
               <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start; border-left: 1px solid rgba(0,0,0,0.08); padding-left: 28px; align-self: stretch; justify-content: center;">
                 <div style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Failed the<br>vibe check.</div>
-                <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; opacity: 0.78; line-height: 1.5;">Domain 6 days old · 2,341 reports.</div>
+                <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; opacity: 0.78; line-height: 1.5;">Domain 6 days old · 2,341 reports.</div>
                 <div style="display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap;">
                   <button class="sa-btn primary sm">Back to safety</button>
                   <button class="sa-btn secondary sm">Why?</button>
@@ -5357,6 +5421,96 @@
       });
     });
   }
+})();
+</script>
+
+<script>
+// Scroll-triggered reveal animations
+(function(){
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var STEP = 60; // stagger step ms
+
+  var targets = [
+    // Section headings
+    {s: '.section > .wrap > h2, .section > .wrap > .section-label', c: 'reveal'},
+    {s: '.section > .wrap > p.ui-intro, .section > .wrap > .logo-usage .intro', c: 'reveal'},
+
+    // Essence — pivot grid + pillars
+    {s: '.essence-intro', c: 'reveal'},
+    {s: '.pivot-col', c: 'reveal', g: 1},
+    {s: '.pillar', c: 'reveal', g: 1},
+
+    // Logo lockups + clear space
+    {s: '.lockup', c: 'reveal', g: 1},
+    {s: '.logo-subhead', c: 'reveal'},
+    {s: '.logo-divider-callout', c: 'reveal'},
+
+    // Colors — risk ladder rows
+    {s: '.tier-head', c: 'reveal'},
+    {s: '.ladder-row', c: 'reveal', g: 1},
+    {s: '.ratio-bar', c: 'reveal'},
+    {s: '.color-logic-cell', c: 'reveal', g: 1},
+
+    // Typography specimens
+    {s: '.type-sample', c: 'reveal', g: 1},
+    {s: '.type-weight-row', c: 'reveal', g: 1},
+    {s: '.h-row', c: 'reveal', g: 1},
+
+    // Voice — tone rows + do/don't
+    {s: '.tone-row', c: 'reveal', g: 1},
+    {s: '.dodo.do', c: 'reveal-left'},
+    {s: '.dodo.dont', c: 'reveal-right'},
+
+    // Photography cards
+    {s: '.photo-cat', c: 'reveal', g: 1},
+
+    // Bento + chart patterns
+    {s: '.dataviz-bento > .bento-cell', c: 'reveal', g: 1},
+    {s: '.chart-pattern', c: 'reveal', g: 1},
+
+    // UI cards + mockups
+    {s: '.ui-card', c: 'reveal', g: 1},
+    {s: '.phone-frame', c: 'reveal-scale'},
+    {s: '.ext-popup', c: 'reveal-scale'},
+    {s: '.social-card', c: 'reveal-scale'},
+    {s: '.safe-card', c: 'reveal-scale'},
+    {s: '.score-card', c: 'reveal-scale'},
+
+    // Design system blocks
+    {s: '.ds-block', c: 'reveal', g: 1},
+    {s: '.icon-cell', c: 'reveal', g: 1},
+
+    // Taglines
+    {s: '.tagline-main', c: 'reveal'},
+    {s: '.tag-row', c: 'reveal', g: 1},
+
+    // Close
+    {s: '.close h2', c: 'reveal'},
+    {s: '.close p', c: 'reveal'},
+  ];
+
+  var all = [];
+  targets.forEach(function(t){
+    var els = document.querySelectorAll(t.s);
+    els.forEach(function(el, i){
+      el.classList.add(t.c);
+      if (t.g && i > 0) el.style.setProperty('--stagger', (i * STEP) + 'ms');
+      all.push(el);
+    });
+  });
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+  all.forEach(function(el){ obs.observe(el); });
 })();
 </script>
 
