@@ -720,7 +720,7 @@
     font-weight: 700;
     font-size: 18px;
     text-align: center;
-    color: var(--ink);
+    color: var(--white);
   }
   .ladder-label {
     padding: 20px;
@@ -1109,6 +1109,109 @@
     text-transform: uppercase;
     opacity: 0.62;
     max-width: 140px;
+  }
+
+  /* Photography category cards — magazine layout */
+  .photo-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 56px;
+  }
+  .photo-cat {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    min-height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    border: 2px solid var(--ink);
+  }
+  .photo-cat-info {
+    padding: 36px 32px;
+    background: var(--warm-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .photo-cat-info h4 {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .photo-cat-info > p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.82;
+    margin-bottom: 20px;
+  }
+  .photo-cat-style {
+    margin-bottom: 16px;
+  }
+  .photo-cat-style strong, .photo-cat-keywords strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .photo-cat-style ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .photo-cat-style li {
+    font-size: 13px;
+    line-height: 1.45;
+    padding-left: 14px;
+    position: relative;
+    opacity: 0.8;
+  }
+  .photo-cat-style li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    opacity: 0.4;
+    font-size: 11px;
+  }
+  .photo-cat-env {
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink);
+    opacity: 0.65;
+    margin-bottom: 10px;
+    padding-left: 14px;
+  }
+  .photo-cat-keywords {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .photo-cat-keywords span {
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--ink);
+    opacity: 0.5;
+    font-style: italic;
+  }
+  /* Photo mosaic — masonry collage, no cropping */
+  .photo-cat-mosaic {
+    columns: 2;
+    column-gap: 6px;
+  }
+  .photo-cat-mosaic img {
+    width: 100%;
+    display: block;
+    margin-bottom: 6px;
+    border-radius: 6px;
   }
 
   .icon-spec {
@@ -3027,6 +3130,9 @@
     .tone-head, .tone-row { grid-template-columns: 100px 1fr 1fr; }
     .photo-heads { grid-template-columns: 1fr; }
     .photo-placeholder-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-cat { grid-template-columns: 1fr; min-height: auto; }
+    .photo-cat-mosaic { columns: 2; }
+    .photo-cat-info { padding: 28px 24px; }
     .icon-grid { grid-template-columns: repeat(3, 1fr); }
     .dataviz-bento { grid-template-columns: 1fr; }
     .bento-wide { grid-column: span 1; }
@@ -3609,55 +3715,287 @@
       <div class="mood-subsection">
         <div class="sub-label">06a — Photography Direction</div>
         <p class="photo-brief">
-          Candid, not staged. Warm natural light, not studio-lit. The phone is always in frame — people mid-scroll, mid-tap, mid-reaction. Real spaces: café tables, messy desks, commute seats. Crop tight — hands, screens, expressions. If it looks like a stock photo, it's wrong.
+          ScamAdviser's visual storytelling reflects our mission to protect, inform, and empower users in the digital world. Our photography is authentic, human-focused, and clear. <strong>Never overly staged, fear-driven, or generic.</strong> Every image should build trust, convey expertise, and create an emotional connection with our audience.
         </p>
 
-        <div class="photo-placeholder-grid">
-          <div class="photo-slot">
-            <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
-            <span class="slot-label">Candid phone moment</span>
+        <!-- ---- Photography Categories ---- -->
+        <div class="photo-categories">
+
+          <!-- 1. Our User (People) -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Our User (People)</h4>
+              <p>Everyday individuals of different ages, backgrounds, and locations engaging with digital life — shopping, banking, messaging, browsing. Authentic, not staged corporate stock.</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>Natural light, soft contrast</li>
+                  <li>Candid moments, slight movement, not overly posed</li>
+                  <li>Clear focus on faces and body language</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Authentic, diverse, relatable, engaged, empowered, informed, candid, everyday life, real people, natural light, relaxed posture, subtle smiles, gentle focus, approachable</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/user_1.jpg" alt="People with laptops in casual setting" loading="lazy">
+              <img src="project/assets/photography/user_5.jpg" alt="Woman on couch scrolling phone" loading="lazy">
+              <img src="project/assets/photography/user_2.jpg" alt="Woman at café with phone" loading="lazy">
+              <img src="project/assets/photography/user_3.jpg" alt="Young woman browsing on phone" loading="lazy">
+              <img src="project/assets/photography/user_6.jpg" alt="Woman at airport with laptop" loading="lazy">
+              <img src="project/assets/photography/user_4.jpg" alt="Couple with laptop, natural light" loading="lazy">
+            </div>
           </div>
-          <div class="photo-slot">
-            <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
-            <span class="slot-label">Warm café / co-work light</span>
+
+          <!-- 2. Advisor & Scam Expert -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Advisor &amp; Scam Expert</h4>
+              <p>ScamAdviser as a trusted, human expert: support staff, analysts, partners, or educators helping users or teams. Supports "Trustworthy," "Dedicated" brand traits.</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>People at screens with dashboards, charts, or scam-related interfaces</li>
+                  <li>Collaborative scenes: one-on-one guidance, small groups, workshops</li>
+                  <li>Clean tech environments, but still warm and human</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Trusted advisor, guidance, expert team, collaboration, explaining, showing side-by-side, mentoring, analysis, data screen, headset support, calm authority, professional but friendly</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/advisor_1.jpg" alt="Professional woman with tablet" loading="lazy">
+              <img src="project/assets/photography/advisor_2.jpg" alt="Man reviewing data on phone" loading="lazy">
+              <img src="project/assets/photography/advisor_3.jpg" alt="Team collaborating at laptop" loading="lazy">
+              <img src="project/assets/photography/advisor_4.jpg" alt="Expert at workstation" loading="lazy">
+            </div>
           </div>
-          <div class="photo-slot">
-            <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-            <span class="slot-label">Screen close-up</span>
+
+          <!-- 3. Device Interaction Close-up -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Device Interaction Close-up</h4>
+              <p>Tight shots of hands and devices: tapping, scrolling, reading scam alerts, seeing trust scores. The device is the brand's stage.</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>Simple background, strong focus on device</li>
+                  <li>Clean, legible UI mockups, minimal glare</li>
+                  <li>Modern devices, no outdated hardware</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Modern, close-ups, interaction, clear screen, tap, scroll, notification, trust score, verification, search bar, minimal, accessible, fingerprint gestures, single-hand use</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/closeup_1.jpg" alt="Person at laptop, tight crop" loading="lazy">
+              <img src="project/assets/photography/closeup_2.jpg" alt="Hands typing on keyboard" loading="lazy">
+              <img src="project/assets/photography/closeup_3.jpg" alt="Hand holding phone, close-up" loading="lazy">
+              <img src="project/assets/photography/closeup_4.jpg" alt="Scrolling on phone screen" loading="lazy">
+            </div>
           </div>
-          <div class="photo-slot">
-            <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            <span class="slot-label">Peer group-chat energy</span>
+
+          <!-- 4. Device Usage — Indoor -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Device Usage — Indoor</h4>
+              <p>Users on phones, laptops, or tablets at home or work using ScamAdviser to check a site, read an alert, or learn about scams.</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>Warm, reassuring light</li>
+                  <li>Simple, tidy environments (no clutter)</li>
+                  <li>Screen content relevant (trust scores, notifications, scam articles)</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Home environment, office setting, modern workspace, minimalist, natural lighting, cozy, focused, seated, desktop, laptop, kitchen table, living room, thoughtful browsing</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/indoor_1.jpg" alt="Woman at home desk with laptop" loading="lazy">
+              <img src="project/assets/photography/indoor_2.jpg" alt="Cozy home workspace" loading="lazy">
+              <img src="project/assets/photography/indoor_3.jpg" alt="Phone and glasses on desk" loading="lazy">
+              <img src="project/assets/photography/indoor_4.jpg" alt="Minimalist desk setup" loading="lazy">
+            </div>
           </div>
-          <div class="photo-slot">
-            <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18m8 0V11l-8-4"/></svg>
-            <span class="slot-label">Urban street candid</span>
+
+          <!-- 5. Device Usage — Outdoor -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Device Usage — Outdoor</h4>
+              <p>People using ScamAdviser "on the go": in a café, park, train, street, or while traveling. The world is visible but the person and device are in focus.</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>Natural daylight, open composition</li>
+                  <li>The world visible but slightly blurred; device &amp; person in focus</li>
+                  <li>Still anchored in a digital action (checking a link, scanning a QR, etc.)</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Open spaces, city street, café, park bench, public transport, travel, natural light, walking with phone, quick check, real-life scenario, community, everyday commute, accessible</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/outdoor_1.jpg" alt="Woman with phone outdoors, golden light" loading="lazy">
+              <img src="project/assets/photography/outdoor_2.jpg" alt="Man at café with laptop" loading="lazy">
+              <img src="project/assets/photography/outdoor_3.jpg" alt="Checking smartwatch on the go" loading="lazy">
+              <img src="project/assets/photography/outdoor_4.jpg" alt="Friends looking at phone together" loading="lazy">
+            </div>
           </div>
-          <div class="photo-slot">
-            <svg class="slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 11V6a2 2 0 00-2-2H8a2 2 0 00-2 2v5m12 0H6m12 0l2 9H4l2-9"/><path d="M10 14v2m4-2v2"/></svg>
-            <span class="slot-label">Hands-on-device detail</span>
+
+          <!-- 6. Emotions -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Emotions</h4>
+              <p>The emotional arc of scams: <em>Before</em> — doubt, concern, confusion. <em>During</em> — focus, checking, verifying with ScamAdviser. <em>After</em> — relief, confidence, calm empowerment.</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>Close-ups of expressions and hands</li>
+                  <li>Soft, calm color environments (no horror-style, no alarmist)</li>
+                  <li>Use composition to move from "tense" to "open" (more light, more space)</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Concern, doubt, focus, attention, checking, verification, confidence, relief, empowerment, calmness, reassurance, hopeful, supported, safe, composed, subtle tension &rarr; visible ease</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/emotions_1.jpg" alt="Person looking at phone with concern" loading="lazy">
+              <img src="project/assets/photography/emotions_2.jpg" alt="Close-up, reading a notification" loading="lazy">
+              <img src="project/assets/photography/emotions_3.jpg" alt="Woman concerned at laptop" loading="lazy">
+              <img src="project/assets/photography/emotions_4.jpg" alt="Couple relieved after checking" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 7. Context & Environments -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Context &amp; Environments</h4>
+              <p>Three sub-contexts that ground the brand in real places:</p>
+              <div class="photo-cat-style">
+                <strong>Home &amp; Everyday Life</strong>
+                <span class="photo-cat-env">Sofa, kitchen, bedroom desk, family interaction, shared tablet, relaxed clothing, warm tones, evening light</span>
+                <strong>Work &amp; Professional</strong>
+                <span class="photo-cat-env">Meeting room, coworking, business casual, small team, collaboration, coworker helping coworker, secure fintech vibe</span>
+                <strong>Public / On-the-go</strong>
+                <span class="photo-cat-env">Airport, train station, café counter, street crossing, park, shopping district, QR code on posters, storefronts, travel bags, local signage, mobility, spontaneity</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/environments_1.jpg" alt="Park with golden hour light" loading="lazy">
+              <img src="project/assets/photography/environments_2.jpg" alt="Café interior, warm tones" loading="lazy">
+              <img src="project/assets/photography/environments_3.jpg" alt="Coworking space" loading="lazy">
+              <img src="project/assets/photography/environments_4.jpg" alt="Office workspace" loading="lazy">
+            </div>
+          </div>
+
+          <!-- 8. Global & Community -->
+          <div class="photo-cat">
+            <div class="photo-cat-info">
+              <h4>Global &amp; Community</h4>
+              <p>Our "Global" and "Catalytic" traits: people from different countries, communities, and age groups; group learning; events about scams. "We're in this together."</p>
+              <div class="photo-cat-style">
+                <strong>Visual style</strong>
+                <ul>
+                  <li>Visible local context (signage, architecture, colors)</li>
+                  <li>Small groups interacting, not big generic crowd shots</li>
+                  <li>Diversity in race, age, ability, and socio-economic representation</li>
+                </ul>
+              </div>
+              <div class="photo-cat-keywords">
+                <strong>Keywords</strong>
+                <span>Global, multicultural, inclusive, cross-border, community workshops, seminar, classroom, people circle, neighborhood, shared screen, discussion, public awareness, collaboration</span>
+              </div>
+            </div>
+            <div class="photo-cat-mosaic">
+              <img src="project/assets/photography/community_1.jpg" alt="Diverse group with tablet and coffee" loading="lazy">
+              <img src="project/assets/photography/community_2.jpg" alt="Workshop discussion group" loading="lazy">
+              <img src="project/assets/photography/community_3.jpg" alt="Multicultural team meeting" loading="lazy">
+              <img src="project/assets/photography/community_4.jpg" alt="Community sharing screens" loading="lazy">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ---- Light & Color Treatment ---- -->
+        <div class="photo-direction" style="margin-top: 72px; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 48px;">
+          <h3 style="font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 24px;">Light &amp; Color Treatment</h3>
+          <div class="photo-heads">
+            <div class="yes">
+              <h4>Light</h4>
+              <ul>
+                <li>Warm natural light — window light, café glow, golden hour, lamp warmth</li>
+                <li>Soft directional, not flat. Shadows present but never crushed.</li>
+                <li>Bright but not blown out — highlights retain detail</li>
+              </ul>
+            </div>
+            <div class="yes">
+              <h4>Color Grading</h4>
+              <ul>
+                <li>Highlights warm-tinted toward <code style="font-family: var(--mono); font-size: 13px; background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 2px;">#FFFFF8</code> (the brand warm white)</li>
+                <li>Natural skin tones, gently warm. No teal-orange Hollywood grade.</li>
+                <li>Shadows soft, leaning to ink <code style="font-family: var(--mono); font-size: 13px; background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 2px;">#1A1A1A</code> — never pure black</li>
+                <li>Overall feel: "good window in a real apartment"</li>
+              </ul>
+            </div>
           </div>
         </div>
 
+        <!-- ---- Composition ---- -->
+        <div class="photo-direction" style="margin-top: 56px; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 48px;">
+          <h3 style="font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin-bottom: 24px;">Composition</h3>
+          <div class="photo-heads">
+            <div class="yes">
+              <h4>Cropping &amp; Framing</h4>
+              <ul>
+                <li>Tight is the default — hands, screen, face. Pick two of three.</li>
+                <li>Wider only when context earns it (café scene, urban street)</li>
+                <li>Rule of thirds for subject placement. Center only when screen content is the hero.</li>
+              </ul>
+            </div>
+            <div class="yes">
+              <h4>Depth &amp; Space</h4>
+              <ul>
+                <li>Shallow depth of field for portraits — isolate subject from clutter</li>
+                <li>Leave 25%+ negative space for overlay (headline, score, geometric shape)</li>
+                <li>Negative space prefers upper-left, upper-right, or lower — subject anchors the opposite corner</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- Do's & Don'ts ---- -->
         <div class="dos-donts" style="margin-top: 56px;">
           <div class="dodo do">
             <h4>Do</h4>
             <ul>
-              <li>Candid, mid-action. Person scrolling, tapping, reacting — never posing for the camera.</li>
-              <li>Warm natural light. Golden hour, window light, café glow — warm tones over cold.</li>
-              <li>Phone-first framing. The device is always in shot, it's the anchor of every composition.</li>
-              <li>Tight crops. Show hands, screens, expressions — skip the full-body wide shot.</li>
-              <li>Real spaces. Desks with clutter, café tables with crumbs, commute seats with bags.</li>
+              <li>Show real people in believable situations — scrolling, tapping, reacting, deciding.</li>
+              <li>Use natural, soft light and clear compositions. Window light, golden hour, lamp warmth.</li>
+              <li>Capture calm focus and confidence, not panic. The emotional arc ends in empowerment.</li>
+              <li>Reflect diversity — age, gender, ethnicity, ability, location. The brand protects everyone.</li>
+              <li>Keep scenes simple and uncluttered, easy to read. Let the human reaction lead.</li>
             </ul>
           </div>
           <div class="dodo dont">
             <h4>Don't</h4>
             <ul>
-              <li>Studio lighting or white-background isolation. If it looks lit, it's wrong.</li>
-              <li>Stock-photo <em>"pointing at screen"</em> energy. Nobody holds a laptop like that.</li>
-              <li>Dark or dystopian <em>"hacker"</em> aesthetic. We're not a cybersecurity vendor.</li>
-              <li>Group shots that feel corporate or staged. No matching outfits, no conference rooms.</li>
-              <li>Gratuitous tech imagery. Server racks and circuit boards belong in a B2B deck.</li>
+              <li>Horror-style, fear-driven imagery (dark rooms, red sirens, screens-on-faces-in-the-dark).</li>
+              <li>Exaggerated hackers in hoodies and green code rain. We're not a cybersecurity vendor.</li>
+              <li>Overly staged, cheesy stock photos with fake smiles. Nobody holds a laptop like that.</li>
+              <li>Users shown as helpless victims being scolded or embarrassed. We empower, not shame.</li>
+              <li>Overload images with UI mockups, text, or infographic overlays. Let the photo breathe.</li>
             </ul>
           </div>
         </div>
@@ -3856,9 +4194,8 @@
             </div>
           </div>
 
-          <!-- 5. Photo placeholder with red gradient -->
-          <div class="bento-cell bento-photo" style="padding: 0;">
-            <div class="ph-placeholder">photo · phone-in-hand</div>
+          <!-- 5. Photo — phone-in-hand -->
+          <div class="bento-cell bento-photo" style="padding: 0; background-image: url('project/assets/photography/bento-phone.jpg');">
           </div>
 
           <!-- 6. Bar chart — peer reports -->
@@ -3923,9 +4260,9 @@
 
           <!-- 9. Photo collage with italic headline — dark -->
           <div class="bento-cell dark" style="position: relative; padding: 0; overflow: hidden;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(204,20,23,0.7) 0%, rgba(26,26,26,1) 70%);"></div>
-            <div style="position: absolute; top: 16px; right: 16px; width: 60%; height: 50%; background: linear-gradient(135deg, rgba(204,20,23,0.5), rgba(26,26,26,0.9)); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em;">PHOTO</div>
-            <div style="position: absolute; bottom: 16px; left: 16px; width: 50%; height: 35%; background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(204,20,23,0.4)); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em;">PHOTO</div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(204,20,23,0.55) 0%, rgba(26,26,26,0.95) 60%);"></div>
+            <img src="project/assets/photography/bento-confident-1.jpg" alt="Confident woman at café" style="position: absolute; top: 12px; right: 12px; width: 58%; height: 52%; object-fit: cover; border-radius: 14px; z-index: 1;">
+            <img src="project/assets/photography/bento-confident-2.jpg" alt="Confident man at laptop" style="position: absolute; bottom: 56px; left: 12px; width: 48%; height: 38%; object-fit: cover; border-radius: 14px; z-index: 1;">
             <div class="bento-editorial" style="position: absolute; right: 24px; bottom: 24px; font-size: clamp(16px, 1.9vw, 22px); text-align: right; max-width: 60%; z-index: 2;"><span class="italic accent">Catch</span><br>what you'd<br>miss:<br>peer-powered<br>scam detection.</div>
           </div>
 
