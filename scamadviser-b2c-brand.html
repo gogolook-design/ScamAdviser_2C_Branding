@@ -70,7 +70,10 @@
     pointer-events: none;
   }
   .login-gate .login-logo {
-    height: 200px;
+    height: auto;
+    width: 720px;
+    max-width: 80vw;
+    margin-bottom: 40px;
   }
   .login-gate .login-box {
     display: flex;
@@ -83,7 +86,7 @@
     margin-top: 16px;
   }
   .login-gate .login-title {
-    font-family: var(--mono);
+    font-family: 'Inter', var(--sans);
     font-size: 36px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -493,6 +496,8 @@
     align-items: stretch;
     margin-top: 48px;
     border: 1px solid var(--ink);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .pivot-col {
     padding: 48px;
@@ -571,55 +576,59 @@
   }
 
   .pillars {
-    margin-top: 96px;
+    margin-top: 48px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--ink);
-    border-left: 1px solid var(--ink);
+    gap: 16px;
   }
   .pillar {
-    padding: 32px 24px;
-    border-right: 1px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
+    padding: 28px 24px 20px;
     min-height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    background: var(--paper);
-    transition: background 0.2s;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s, transform 0.2s;
   }
-  .pillar:hover { background: var(--anti-flash); }
+  .pillar:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
   .pillar .num {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.08em;
-    opacity: 0.82;
+    opacity: 0.38;
   }
   .pillar h4 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
     line-height: 1;
-    margin: 16px 0 auto 0;
+    margin: 12px 0 auto 0;
+    color: var(--red);
   }
   .pillar p {
     font-size: 13px;
-    line-height: 1.45;
-    opacity: 0.7;
-    margin-top: 12px;
+    line-height: 1.5;
+    opacity: 0.68;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
   .pillar .accent {
-    width: 100%; height: 3px;
+    width: 60%; height: 3px;
+    border-radius: 2px;
     background: var(--ink);
-    margin-top: 16px;
+    margin-top: auto;
   }
-  .pillar:nth-child(1) .accent { background: var(--red); }
-  .pillar:nth-child(2) .accent { background: var(--trust-blue); }
-  .pillar:nth-child(3) .accent { background: var(--red); }
-  .pillar:nth-child(4) .accent { background: var(--teal); }
-  .pillar:nth-child(5) .accent { background: var(--trust-blue); }
+  .pillar:nth-child(1) .accent { background: #6B7280; }
+  .pillar:nth-child(2) .accent { background: #F59E0B; }
+  .pillar:nth-child(3) .accent { background: #8B5CF6; }
+  .pillar:nth-child(4) .accent { background: #10B981; }
+  .pillar:nth-child(5) .accent { background: #3B82F6; }
 
   /* ============ COLORS ============ */
   .colors {
@@ -643,6 +652,7 @@
     margin-top: 64px;
     border: 1px solid var(--ink);
     overflow: hidden;
+    border-radius: 12px;
   }
   .ratio-seg {
     display: flex;
@@ -700,6 +710,8 @@
   .risk-ladder {
     margin-top: 96px;
     border: 1px solid var(--ink);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .risk-ladder h3 {
     padding: 24px 32px;
@@ -853,6 +865,8 @@
     margin-top: 64px;
     border: 1px solid var(--ink);
     background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .tone-head {
     display: grid;
@@ -924,6 +938,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 0;
     border: 1px solid var(--ink);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .dodo {
     padding: 40px;
@@ -1093,6 +1109,7 @@
   .photo-slot {
     aspect-ratio: 4/3;
     border: 2px dashed rgba(0,0,0,0.12);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1226,6 +1243,7 @@
     gap: 32px;
     padding: 24px 32px;
     border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 12px;
     background: var(--white);
     max-width: 720px;
   }
@@ -1547,6 +1565,8 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
     gap: 16px;
     min-height: 240px;
   }
@@ -1588,6 +1608,8 @@
     gap: 0;
     border: 1px solid var(--ink);
     margin-top: 16px;
+    border-radius: 12px;
+    overflow: hidden;
   }
   .color-logic-cell {
     padding: 28px;
@@ -2411,6 +2433,8 @@
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--ink);
     border-left: 1px solid var(--ink);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .logo-subhead {
     margin-top: 64px;
@@ -2522,6 +2546,8 @@
     border: 1px solid var(--ink);
     position: relative;
     display: flex;
+    border-radius: 12px;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
   }
@@ -2596,6 +2622,8 @@
     padding: 32px;
     display: flex;
     flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
     gap: 20px;
     min-height: 340px;
   }
@@ -2893,6 +2921,7 @@
     padding: 28px; background: var(--white);
     border: 1px solid rgba(0,0,0,0.08);
     margin-top: 4px;
+    border-radius: 12px;
   }
   .ds-highlight-demo p {
     font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--ink);
@@ -3035,6 +3064,8 @@
     grid-template-columns: 1.4fr 1fr;
     gap: 0;
     border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    overflow: hidden;
   }
   .tagline-main {
     padding: 48px;
@@ -3152,7 +3183,7 @@
     .hero-sub { grid-template-columns: 1fr; }
     .hero-grid { grid-template-columns: 1fr; }
     .search-panel { justify-self: stretch; max-width: 100%; }
-    .pillars { grid-template-columns: repeat(2, 1fr); }
+    .pillars { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .color-grid { grid-template-columns: repeat(3, 1fr); }
     .pivot-grid { grid-template-columns: 1fr; }
     .pivot-arrow { display: none; }
@@ -3189,7 +3220,7 @@
 
   <!-- Login Gate -->
   <div class="login-gate" id="loginGate">
-    <img src="project/assets/sa-logo-white.png" alt="ScamAdviser" class="login-logo">
+    <img src="project/assets/sa-logo-white-horizontal.svg" alt="ScamAdviser" class="login-logo">
     <div class="login-title">B2C Brand Guideline</div>
     <div class="login-box">
       <input type="password" class="login-input" id="loginInput" placeholder="Enter password" autocomplete="off" autofocus>
@@ -3216,7 +3247,7 @@
   <section class="hero" id="hero">
     <div class="grain"></div>
     <div class="nav">
-      <div class="logo-mark"><div class="logo-svg"><img src="project/assets/sa-logo.png" alt="ScamAdviser" style="height:28px;width:auto;display:block;"></div></div>
+      <div class="logo-mark"><div class="logo-svg"><img src="project/assets/sa-logo-color-horizontal.svg" alt="ScamAdviser" style="height:28px;width:auto;display:block;"></div></div>
       <div>Brand Exploration · B2C Pivot · Rev. 05.2026</div>
     </div>
 
