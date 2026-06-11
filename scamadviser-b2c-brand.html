@@ -859,6 +859,9 @@
     font-size: 28px;
     letter-spacing: -0.02em;
   }
+  .type-sample--primary .type-weight-row .w-text {
+    font-size: 56px;
+  }
   .w-300 { font-weight: 300; }
   .w-400 { font-weight: 400; }
   .w-500 { font-weight: 500; }
@@ -3886,56 +3889,181 @@
   <section class="section type-section" id="type">
     <div class="wrap">
       <div class="section-label">04 — Typography</div>
-      <h2 style="font-size: clamp(40px, 6vw, 72px); font-weight: 800; line-height: 0.95; letter-spacing: -0.035em; max-width: 900px;">One typeface. <span style="opacity: 0.72;">Many registers.</span></h2>
+      <h2 style="font-size: clamp(40px, 6vw, 72px); font-weight: 800; line-height: 0.95; letter-spacing: -0.035em; max-width: 900px;">Three typefaces. <span style="opacity: 0.72;">One clear voice.</span></h2>
 
-      <div class="type-specimen">
-        <div class="type-sample">
-          <div class="label">Primary — Inter</div>
+      <!-- Typeface overview -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;">
+        <div style="background: var(--white); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; min-height: 320px;">
+          <div style="font-family: var(--mono); font-size: 13px; font-weight: 400; opacity: 0.56; margin-bottom: 8px;">Primary typeface</div>
+          <div style="font-size: 36px; font-weight: 800; color: var(--red); letter-spacing: -0.03em; line-height: 1; margin-bottom: 20px;">Inter</div>
+          <p style="font-size: 13px; line-height: 1.65; opacity: 0.72; flex: 1;"><strong>Inter</strong> is the primary typeface used across all communications. Inter Bold is applied to headlines for a strong, attention-grabbing presence, while Inter Medium is used for sub-headlines, ensuring a clean, balanced look.</p>
+          <div style="font-size: 80px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 24px; color: var(--ink);">#SA</div>
+        </div>
+        <div style="background: var(--white); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; min-height: 320px;">
+          <div style="font-family: var(--mono); font-size: 13px; font-weight: 400; opacity: 0.56; margin-bottom: 8px;">Data typeface</div>
+          <div style="font-family: var(--mono); font-size: 36px; font-weight: 800; color: var(--red); letter-spacing: -0.03em; line-height: 1; margin-bottom: 20px;">JetBrains</div>
+          <p style="font-size: 13px; line-height: 1.65; opacity: 0.72; flex: 1;"><strong>JetBrains Mono</strong> is the designated data typeface for all numerical and technical content, ensuring precise alignment and legibility across trust scores, percentages, and ratings. JetBrains Mono Bold highlights key metrics, while Regular supports supplementary data and interface elements.</p>
+          <div style="font-family: var(--mono); font-size: 80px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 24px; color: var(--ink);">100%</div>
+        </div>
+        <div style="background: var(--white); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; min-height: 320px;">
+          <div style="font-family: var(--mono); font-size: 13px; font-weight: 400; opacity: 0.56; margin-bottom: 8px;">Regional typeface</div>
+          <div style="font-size: 36px; font-weight: 800; color: var(--red); letter-spacing: -0.03em; line-height: 1; margin-bottom: 20px;">Noto Sans</div>
+          <p style="font-size: 13px; line-height: 1.65; opacity: 0.72; flex: 1;"><strong>Noto Sans</strong> is used as the regional typeface for ScamAdviser, particularly in countries where localized language support is essential.</p>
+          <div style="font-size: 80px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-top: 24px; color: var(--ink);">安全</div>
+        </div>
+      </div>
+
+      <!-- Primary: Inter specimen — full width -->
+      <div style="margin-top: 64px;">
+        <div class="type-sample type-sample--primary" style="max-width: 100%;">
+          <div class="label">Primary Typeface — Inter</div>
           <div class="type-display">Aa<span class="outline">Aa</span></div>
           <div class="type-weights">
             <div class="type-weight-row">
               <div class="w-label">300 Light</div>
-              <div class="w-text w-300">Aa · BS detector</div>
+              <div class="w-text w-300">If it looks too good to be true, it probably is.</div>
             </div>
             <div class="type-weight-row">
               <div class="w-label">400 Regular</div>
-              <div class="w-text w-400">Aa · BS detector</div>
+              <div class="w-text w-400">If it looks too good to be true, it probably is.</div>
             </div>
             <div class="type-weight-row">
               <div class="w-label">500 Medium</div>
-              <div class="w-text w-500">Aa · BS detector</div>
+              <div class="w-text w-500">If it looks too good to be true, it probably is.</div>
             </div>
             <div class="type-weight-row">
               <div class="w-label">700 Bold</div>
-              <div class="w-text w-700">Aa · BS detector</div>
+              <div class="w-text w-700">If it looks too good to be true, it probably is.</div>
             </div>
             <div class="type-weight-row">
               <div class="w-label">900 Black</div>
-              <div class="w-text w-900">Aa · BS detector</div>
+              <div class="w-text w-900">If it looks too good to be true, it probably is.</div>
             </div>
+          </div>
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08); font-size: 12px; line-height: 2; color: #1A1A1A; letter-spacing: 0.02em;">
+            abcdefghijklmnopqrstuvwxyz<br>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            1234567890 !@#$%^&*
+          </div>
+        </div>
+      </div>
+
+      <!-- Data + Regional: two columns -->
+      <div class="type-specimen" style="margin-top: 48px;">
+
+        <!-- Data: JetBrains Mono -->
+        <div class="type-sample">
+          <div class="label">Data Typeface — JetBrains Mono</div>
+          <div class="type-display" style="font-family: var(--mono);">Aa<span class="outline" style="font-family: var(--mono);">Aa</span></div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <div class="w-label">300 Light</div>
+              <div class="w-text w-300" style="font-family: var(--mono);">1,234 Suspicious found.</div>
+            </div>
+            <div class="type-weight-row">
+              <div class="w-label">400 Regular</div>
+              <div class="w-text w-400" style="font-family: var(--mono);">1,234 Suspicious found.</div>
+            </div>
+            <div class="type-weight-row">
+              <div class="w-label">500 Medium</div>
+              <div class="w-text w-500" style="font-family: var(--mono);">1,234 Suspicious found.</div>
+            </div>
+            <div class="type-weight-row">
+              <div class="w-label">700 Bold</div>
+              <div class="w-text w-700" style="font-family: var(--mono);">1,234 Suspicious found.</div>
+            </div>
+            <div class="type-weight-row">
+              <div class="w-label">800 Extra Bold</div>
+              <div class="w-text w-900" style="font-family: var(--mono);">1,234 Suspicious found.</div>
+            </div>
+          </div>
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08); font-family: var(--mono); font-size: 12px; line-height: 2; color: #1A1A1A; letter-spacing: 0.02em;">
+            abcdefghijklmnopqrstuvwxyz<br>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            1234567890 !@#$%^&*
           </div>
         </div>
 
+        <!-- Regional: Noto Sans -->
         <div class="type-sample">
-          <div class="label">Hierarchy in use</div>
-          <div class="hierarchy">
-            <div class="h-row">
-              <div class="spec">H1 · Inter 800<br/>-3.5%</div>
-              <div class="h-headline">Heads up: new phishing drop.</div>
+          <div class="label">Regional Typeface — Noto Sans</div>
+          <div class="type-display">Aa<span class="outline">Aa</span></div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <div class="w-label">Mandarin Simplified</div>
+              <div class="w-text w-400">鉴于对人类家庭所有成员的固有尊严</div>
             </div>
-            <div class="h-row">
-              <div class="spec">H2 · Inter 500<br/>-2%</div>
-              <div class="h-subhead">Check that link before you tap.</div>
+            <div class="type-weight-row">
+              <div class="w-label">Mandarin Traditional</div>
+              <div class="w-text w-400">鑑於對人類家庭所有成員的固有尊嚴</div>
             </div>
-            <div class="h-row">
-              <div class="spec">Body · Inter 400<br/>1.5 line</div>
-              <div class="h-body">Three million people reported this domain in the last 48 hours. Most of them landed here from a text message that looked like it came from their bank. It didn't.</div>
+            <div class="type-weight-row">
+              <div class="w-label">Japanese</div>
+              <div class="w-text w-400">人類社会のすべての構成員の固有の尊厳</div>
             </div>
-            <div class="h-row">
-              <div class="spec">Data · Mono<br/>JetBrains</div>
-              <div class="h-mono">trust_score: 12/100 · flagged 2h ago</div>
+            <div class="type-weight-row">
+              <div class="w-label">Korean</div>
+              <div class="w-text w-400">모든 인류 구성원의 천부의 존엄성과</div>
+            </div>
+            <div class="type-weight-row">
+              <div class="w-label">Thai</div>
+              <div class="w-text w-400">โดยที่การไม่นำพาและการหมิ่นในคุณค่า</div>
             </div>
           </div>
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08); font-size: 12px; line-height: 2; color: #1A1A1A; letter-spacing: 0.02em;">
+            abcdefghijklmnopqrstuvwxyz<br>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            1234567890 !@#$%^&*
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hierarchy in use -->
+      <div class="type-specimen" style="margin-top: 48px;">
+        <div class="type-sample" style="grid-column: 1 / -1;">
+          <div class="label">Hierarchy in Use</div>
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 0; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; margin-top: 16px;">
+            <div style="background: #1A1A1A; color: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08);">H1</div>
+            <div style="padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.08); background: var(--white);">
+              <div style="font-family: var(--mono); font-size: 11px; opacity: 0.5; margin-bottom: 8px;">Inter Bold · Letter-spacing -3.5%</div>
+              <div style="font-size: 36px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1;">Heads up: new phishing drop.</div>
+            </div>
+            <div style="background: #1A1A1A; color: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08);">H2</div>
+            <div style="padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.08); background: var(--white);">
+              <div style="font-family: var(--mono); font-size: 11px; opacity: 0.5; margin-bottom: 8px;">Inter Medium · Letter-spacing -2%</div>
+              <div style="font-size: 24px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2;">Check that link before you tap.</div>
+            </div>
+            <div style="background: #1A1A1A; color: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08);">Body</div>
+            <div style="padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.08); background: var(--white);">
+              <div style="font-family: var(--mono); font-size: 11px; opacity: 0.5; margin-bottom: 8px;">Inter Regular · Line-height 1.5</div>
+              <div style="font-size: 16px; font-weight: 400; line-height: 1.5;">Three million people reported this domain in the last 48 hours. Most of them landed here from a text message that looked like it came from their bank. It didn't.</div>
+            </div>
+            <div style="background: #1A1A1A; color: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">Data</div>
+            <div style="padding: 20px; background: var(--white);">
+              <div style="font-family: var(--mono); font-size: 11px; opacity: 0.5; margin-bottom: 8px;">JetBrains Mono · Bold for key metrics, Regular for supplementary</div>
+              <div style="font-family: var(--mono); font-size: 16px; font-weight: 700;">trust_score: 12/100 · flagged 2h ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rules -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;">
+        <div style="background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid rgba(0,0,0,0.08);">
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 12px;">Headlines</div>
+          <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 12px;">Inter Bold</div>
+          <p style="font-size: 13px; line-height: 1.6; opacity: 0.68;">Use for all headlines to ensure prominence and authority. Never use lighter weights for headline roles.</p>
+        </div>
+        <div style="background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid rgba(0,0,0,0.08);">
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 12px;">Sub-headlines</div>
+          <div style="font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 12px;">Inter Medium</div>
+          <p style="font-size: 13px; line-height: 1.6; opacity: 0.68;">Creates a balanced hierarchy under the headline. Maintains a clean, modern look without competing with H1.</p>
+        </div>
+        <div style="background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid rgba(0,0,0,0.08);">
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 12px;">Body & Data</div>
+          <div style="font-size: 22px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 12px;">Inter Regular + <span style="font-family: var(--mono);">JetBrains</span></div>
+          <p style="font-size: 13px; line-height: 1.6; opacity: 0.68;">Inter Regular for all body copy. JetBrains Mono exclusively for numbers, scores, and technical data — never for running text.</p>
         </div>
       </div>
     </div>
