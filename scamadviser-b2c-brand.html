@@ -619,16 +619,55 @@
     margin-bottom: 16px;
   }
   .pillar .accent {
-    width: 60%; height: 3px;
+    width: 100%;
+    height: 3px;
     border-radius: 2px;
     background: var(--ink);
     margin-top: auto;
   }
-  .pillar:nth-child(1) .accent { background: #6B7280; }
-  .pillar:nth-child(2) .accent { background: #F59E0B; }
-  .pillar:nth-child(3) .accent { background: #8B5CF6; }
-  .pillar:nth-child(4) .accent { background: #10B981; }
-  .pillar:nth-child(5) .accent { background: #3B82F6; }
+  .pillar:nth-child(1) .accent { background: #6D8198; }
+  .pillar:nth-child(2) .accent { background: #E87000; }
+  .pillar:nth-child(3) .accent { background: #A36890; }
+  .pillar:nth-child(4) .accent { background: #397E67; }
+  .pillar:nth-child(5) .accent { background: #2C98DA; }
+
+  /* ============ TONE OF VOICE ============ */
+  .tov-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 80px;
+    padding-top: 64px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+  .tov-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.78;
+    margin: 0;
+  }
+  .tov-desc strong {
+    font-weight: 700;
+    opacity: 1;
+    color: var(--ink);
+  }
+  .tov-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tov-pill {
+    background: var(--white);
+    border-radius: 999px;
+    padding: 18px 32px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--red);
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
 
   /* ============ COLORS ============ */
   .colors {
@@ -3135,6 +3174,55 @@
     line-height: 1.4;
   }
 
+  /* ============ COLOR CELLS ============ */
+  .color-cell {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+  .color-cell:last-child { border-right: 0; }
+  .cc-swatch {
+    width: 100%;
+    height: 72px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+  }
+  .cc-name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .cc-hex {
+    font-family: var(--mono);
+    font-size: 12px;
+    opacity: 0.72;
+  }
+  .cc-rgb, .cc-cmyk, .cc-pms {
+    font-family: var(--mono);
+    font-size: 11px;
+    opacity: 0.56;
+    letter-spacing: 0.02em;
+  }
+  .color-cell--sm {
+    padding: 16px;
+    gap: 6px;
+  }
+  .cc-swatch--sm {
+    height: 48px;
+    margin-bottom: 2px;
+  }
+  .color-cell--sm .cc-name { font-size: 13px; }
+  .color-cell--sm .cc-hex { font-size: 11px; }
+  .ratio-bar {
+    display: flex;
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
   /* ============ SCROLL REVEAL ============ */
   .reveal {
     opacity: 0;
@@ -3184,6 +3272,8 @@
     .hero-grid { grid-template-columns: 1fr; }
     .search-panel { justify-self: stretch; max-width: 100%; }
     .pillars { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .tov-block { grid-template-columns: 1fr; gap: 32px; }
+    .tov-pill { font-size: 18px; padding: 14px 24px; }
     .color-grid { grid-template-columns: repeat(3, 1fr); }
     .pivot-grid { grid-template-columns: 1fr; }
     .pivot-arrow { display: none; }
@@ -3356,6 +3446,22 @@
           <div class="accent"></div>
         </div>
       </div>
+
+      <!-- ============ Tone of Voice ============ -->
+      <div class="tov-block">
+        <div class="tov-left">
+          <h2 style="font-size: 32px; font-weight: 800; letter-spacing: -0.025em; margin: 0 0 24px; line-height: 1.1;">Tone of Voice</h2>
+          <p class="tov-desc">Our Voice &amp; Tone Principles embody the essence of who ScamAdviser is as a trusted advisor and scam expert. <strong>Clear &amp; Confident</strong> reflects our deep expertise and commitment to providing straightforward, actionable guidance. <strong>Human &amp; Approachable</strong> ensures we communicate warmly and conversationally, making it easy for everyone to engage with us. We chose <strong>Informative &amp; Engaging</strong> because we believe in capturing attention through practical, insightful content that's always relevant. With <strong>Empathetic &amp; Supportive</strong>, we show genuine care for our users, understanding their experiences and providing reassurance without judgment. Finally, <strong>Alert &amp; Proactive</strong> captures our relentless dedication to anticipating threats, actively protecting our community, and inspiring swift, informed actions.</p>
+        </div>
+        <div class="tov-right">
+          <div class="tov-pill">Clear &amp; Confident</div>
+          <div class="tov-pill">Human &amp; Approachable</div>
+          <div class="tov-pill">Informative &amp; Engaging</div>
+          <div class="tov-pill">Empathetic &amp; Supportive</div>
+          <div class="tov-pill">Alert &amp; Proactive</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -3539,133 +3645,204 @@
     <div class="wrap">
       <div class="section-label">03 — Color System</div>
       <h2>Warm grey <em>breathes</em>. Red <em>signals</em>. Ink <em>anchors</em>.</h2>
-      <p class="essence-intro" style="margin-top:16px;">Two tiers. Primary carries the brand across every surface. Secondary is for editorial and community only — never used in trust scores or alerts.</p>
+      <p class="essence-intro" style="margin-top:16px;">Three tiers. Primary carries the brand across every surface. Secondary adds creativity and dynamism. Tertiary provides depth and flexibility for illustrations and interactive elements.</p>
 
-      <!-- Primary tier -->
+      <!-- Primary Colors -->
       <div class="tier-head">
-        <span class="n">Tier 01</span>
-        <h3>Primary Color</h3>
-        <span class="note">Every surface, every touchpoint. The 30 / 30 / 20 / 20 applies here.</span>
+        <span class="n">Primary Colors</span>
+        <h3>Core Identity</h3>
+        <span class="note">Every surface, every touchpoint. These colors form the foundation of ScamAdviser's visual identity.</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(0,0,0,0.12); margin-top: 32px; overflow: hidden;">
-        <div style="background: #EFEBE2; color: #0A0A0A; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(0,0,0,0.1);">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600;">30% · Canvas</div>
-          <div>
-            <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">Warm Grey</div>
-            <div style="font-family: var(--mono); font-size: 12px; opacity: 0.78; margin-bottom: 10px;">#EFEBE2</div>
-            <div style="font-size: 12px; line-height: 1.5; opacity: 0.78;">Page bg · section surfaces · breathing room. Never fill CTAs or alerts.</div>
-          </div>
+      <div class="color-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(0,0,0,0.12); margin-top: 32px; overflow: hidden; border-radius: 12px; align-items: stretch;">
+        <div class="color-cell" style="background: #EFEBE2; color: #1A1A1A;">
+          <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 4px;">60% · Canvas</div>
+          <div class="cc-swatch" style="background: #EFEBE2; border: 1px solid rgba(0,0,0,0.08);"></div>
+          <div class="cc-name">Warm Gray</div>
+          <div class="cc-hex">#EFEBE2</div>
+          <div class="cc-rgb">RGB 239, 235, 226</div>
+          <div class="cc-cmyk">CMYK 0, 2, 5, 6</div>
+          <div class="cc-pms">PMS Warm Gray 1C</div>
+          <div style="font-size: 12px; line-height: 1.5; opacity: 0.72; margin-top: 8px;">Page bg · section surfaces · breathing room. Never fill CTAs or alerts.</div>
         </div>
-        <div style="background: #FFFFF8; color: #0A0A0A; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(0,0,0,0.08);">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600;">30% · Surface</div>
-          <div>
-            <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">Warm White</div>
-            <div style="font-family: var(--mono); font-size: 12px; opacity: 0.78; margin-bottom: 10px;">#FFFFF8</div>
-            <div style="font-size: 12px; line-height: 1.5; opacity: 0.78;">Cards · modals · overlays. Reads as white — barely-there warmth.</div>
-          </div>
+        <div class="color-cell" style="background: #FFFFF8; color: #1A1A1A;">
+          <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 4px;">60% · Surface</div>
+          <div class="cc-swatch" style="background: #FFFFF8; border: 1px solid rgba(0,0,0,0.08);"></div>
+          <div class="cc-name">Warm White</div>
+          <div class="cc-hex">#FFFFF8</div>
+          <div class="cc-rgb">RGB 255, 255, 248</div>
+          <div class="cc-cmyk">CMYK 0, 0, 3, 0</div>
+          <div class="cc-pms">PMS 9180C</div>
+          <div style="font-size: 12px; line-height: 1.5; opacity: 0.72; margin-top: 8px;">Cards · modals · overlays. Reads as white — barely-there warmth.</div>
         </div>
-        <div style="background: #CC1417; color: #fff; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(255,255,255,0.15);">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 600;">20% · Focus</div>
-          <div>
-            <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">ScamAdviser Red</div>
-            <div style="font-family: var(--mono); font-size: 12px; opacity: 0.82; margin-bottom: 10px;">#CC1417</div>
-            <div style="font-size: 12px; line-height: 1.5; opacity: 0.8;">CTAs · alerts · brand hero moments. One red family only — no tints.</div>
-          </div>
+        <div class="color-cell" style="background: #CC1417; color: #fff;">
+          <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 600; margin-bottom: 4px;">30% · Focus</div>
+          <div class="cc-swatch" style="background: #CC1417; border: 1px solid rgba(255,255,255,0.15);"></div>
+          <div class="cc-name">ScamAdviser Red</div>
+          <div class="cc-hex">#CC1417</div>
+          <div class="cc-rgb">RGB 204, 21, 23</div>
+          <div class="cc-cmyk">CMYK 0, 90, 89, 20</div>
+          <div class="cc-pms">PMS 1795 C</div>
+          <div style="font-size: 12px; line-height: 1.5; opacity: 0.8; margin-top: 8px;">CTAs · alerts · brand hero moments. One red family only — no tints.</div>
         </div>
-        <div style="background: #1A1A1A; color: #fff; padding: 28px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.78); font-weight: 600;">20% · Anchor</div>
-          <div>
-            <div style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;">Ink Black</div>
-            <div style="font-family: var(--mono); font-size: 12px; opacity: 0.78; margin-bottom: 10px;">#1A1A1A</div>
-            <div style="font-size: 12px; line-height: 1.5; opacity: 0.82;">Body text · borders · dark UI · structural weight.</div>
-          </div>
+        <div class="color-cell" style="background: #1A1A1A; color: #fff;">
+          <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 4px;">10% · Anchor</div>
+          <div class="cc-swatch" style="background: #1A1A1A; border: 1px solid rgba(255,255,255,0.1);"></div>
+          <div class="cc-name">Ink Black</div>
+          <div class="cc-hex">#1A1A1A</div>
+          <div class="cc-rgb">RGB 26, 26, 26</div>
+          <div class="cc-cmyk">CMYK 0, 0, 0, 90</div>
+          <div class="cc-pms">PMS Process Black 6C</div>
+          <div style="font-size: 12px; line-height: 1.5; opacity: 0.72; margin-top: 8px;">Body text · borders · dark UI · structural weight.</div>
         </div>
       </div>
 
-      <!-- Secondary tier -->
+      <!-- Secondary Colors -->
       <div class="tier-head">
-        <span class="n">Tier 02</span>
-        <h3>Secondary Color</h3>
-        <span class="note">Long-form reading, peer content, press. Never used for risk states. Pick one direction.</span>
+        <span class="n">Secondary Colors</span>
+        <h3>Creative & Dynamic</h3>
+        <span class="note">Complement the primary palette. Used for illustrations and interactive elements — never for risk states or trust scores.</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--ink);">
-        <div style="border-right: 1px solid var(--ink); border-top: 3px solid #4A5568; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option A · Slate</div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="height: 56px; background: #4A5568; border-radius: 4px;"></div>
-            <div style="height: 32px; background: #718096; border-radius: 4px;"></div>
-            <div style="height: 20px; background: rgba(74,85,104,0.15); border-radius: 4px;"></div>
-          </div>
-          <div>
-            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#4A5568 · Slate</div>
-            <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Cool, editorial, credible. Works well for community badges and data labels. No risk-state confusion.</div>
-          </div>
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: data, editorial</div>
+      <div class="color-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid rgba(0,0,0,0.12); margin-top: 32px; overflow: hidden; border-radius: 12px;">
+        <div class="color-cell" style="background: #EFEBE2; color: #1A1A1A;">
+          <div class="cc-swatch" style="background: #6D8198;"></div>
+          <div class="cc-name">Sentinel Gray</div>
+          <div class="cc-hex">#6D8198</div>
+          <div class="cc-rgb">RGB 109, 129, 152</div>
+          <div class="cc-cmyk">CMYK 28, 15, 0, 40</div>
+          <div class="cc-pms">PMS 7544 C</div>
         </div>
-        <div style="border-right: 1px solid var(--ink); border-top: 3px solid #B45309; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option B · Amber</div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="height: 56px; background: #B45309; border-radius: 4px;"></div>
-            <div style="height: 32px; background: #D97706; border-radius: 4px;"></div>
-            <div style="height: 20px; background: rgba(180,83,9,0.12); border-radius: 4px;"></div>
-          </div>
-          <div>
-            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#B45309 · Amber</div>
-            <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Warm, bold, pairs naturally with the grey canvas. Energetic without crossing into the orange-warning territory.</div>
-          </div>
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: campaign, social</div>
+        <div class="color-cell" style="background: #EFEBE2; color: #1A1A1A;">
+          <div class="cc-swatch" style="background: #E87000;"></div>
+          <div class="cc-name">Rally Orange</div>
+          <div class="cc-hex">#E87000</div>
+          <div class="cc-rgb">RGB 232, 112, 0</div>
+          <div class="cc-cmyk">CMYK 0, 52, 100, 9</div>
+          <div class="cc-pms">PMS 144 C</div>
         </div>
-        <div style="border-right: 1px solid var(--ink); border-top: 3px solid #6B3F5E; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option C · Plum</div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="height: 56px; background: #6B3F5E; border-radius: 4px;"></div>
-            <div style="height: 32px; background: #9B6B8E; border-radius: 4px;"></div>
-            <div style="height: 20px; background: rgba(107,63,94,0.12); border-radius: 4px;"></div>
-          </div>
-          <div>
-            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#6B3F5E · Plum</div>
-            <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Distinctive and unlike anything in the risk ladder. Skews editorial and peer-community — high contrast against warm grey.</div>
-          </div>
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: community, peer</div>
+        <div class="color-cell" style="background: #EFEBE2; color: #1A1A1A;">
+          <div class="cc-swatch" style="background: #A36890;"></div>
+          <div class="cc-name">Kinship Mauve</div>
+          <div class="cc-hex">#A36890</div>
+          <div class="cc-rgb">RGB 163, 104, 144</div>
+          <div class="cc-cmyk">CMYK 0, 36, 12, 36</div>
+          <div class="cc-pms">PMS 7436 C</div>
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid var(--ink); border-top: 3px solid #2D4A3E;">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72;">Option D · Forest</div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="height: 56px; background: #2D4A3E; border-radius: 4px;"></div>
-            <div style="height: 32px; background: #4A7C68; border-radius: 4px;"></div>
-            <div style="height: 20px; background: rgba(45,74,62,0.12); border-radius: 4px;"></div>
-          </div>
-          <div>
-            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#2D4A3E · Forest</div>
-            <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Deep, grounded, premium feel. Dark enough to not be confused with the safe-green functional colour in the risk ladder.</div>
-          </div>
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--red); margin-top: auto;">Good for: trust, premium</div>
+        <div class="color-cell" style="background: #EFEBE2; color: #1A1A1A;">
+          <div class="cc-swatch" style="background: #397E67;"></div>
+          <div class="cc-name">Refuge Green</div>
+          <div class="cc-hex">#397E67</div>
+          <div class="cc-rgb">RGB 57, 126, 103</div>
+          <div class="cc-cmyk">CMYK 55, 0, 18, 51</div>
+          <div class="cc-pms">PMS 7727 C</div>
         </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; border-top: 3px solid #317BB8;">
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #317BB8; font-weight: 700;">Option E · Trust Blue</div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="height: 56px; background: #317BB8; border-radius: 4px;"></div>
-            <div style="height: 32px; background: #4D96D4; border-radius: 4px;"></div>
-            <div style="height: 20px; background: rgba(49,123,184,0.12); border-radius: 4px;"></div>
-          </div>
-          <div>
-            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em;">#317BB8 · Trust Blue</div>
-            <div style="font-size: 12px; opacity: 0.78; margin-top: 4px; line-height: 1.4;">Original brand secondary. Carries existing recognition and pairs naturally with the red. Strong community and peer-trust associations.</div>
-          </div>
-          <div style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: #317BB8; margin-top: auto;">Good for: community</div>
+        <div class="color-cell" style="background: #EFEBE2; color: #1A1A1A;">
+          <div class="cc-swatch" style="background: #2C98DA;"></div>
+          <div class="cc-name">Horizon Blue</div>
+          <div class="cc-hex">#2C98DA</div>
+          <div class="cc-rgb">RGB 44, 152, 218</div>
+          <div class="cc-cmyk">CMYK 80, 30, 0, 15</div>
+          <div class="cc-pms">PMS 2995 C</div>
         </div>
       </div>
 
-      <!-- Guardrail -->
-      <div class="tier-head" style="margin-top:72px;">
-        <span class="n" style="color: var(--red);">Guardrail</span>
-        <h3 style="font-size: 20px; font-weight: 600;">Secondary never touches risk states.</h3>
-        <span class="note">Whichever option is chosen stays out of the red → orange → green → teal ladder entirely.</span>
+      <!-- Tertiary Colors -->
+      <div class="tier-head">
+        <span class="n">Tertiary Colors</span>
+        <h3>Depth & Flexibility</h3>
+        <span class="note">Deep and Light variants for each secondary color. Used sparingly for infographics and interactive elements — digital use only.</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 32px;">
+        <!-- Deep row -->
+        <div class="color-grid" style="display: grid; grid-template-columns: 120px repeat(5, 1fr); border: 1px solid rgba(0,0,0,0.12); overflow: hidden; border-radius: 12px;">
+          <div style="background: #1A1A1A; color: #fff; display: flex; align-items: center; justify-content: center; padding: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; writing-mode: horizontal-tb;">Deep</div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #4A5568;"></div>
+            <div class="cc-name">Sentinel Deep</div>
+            <div class="cc-hex">#4A5568</div>
+            <div class="cc-pms">PMS 7545 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #B45309;"></div>
+            <div class="cc-name">Rally Deep</div>
+            <div class="cc-hex">#B45309</div>
+            <div class="cc-pms">PMS 7526 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #6B3F5E;"></div>
+            <div class="cc-name">Kinship Deep</div>
+            <div class="cc-hex">#6B3F5E</div>
+            <div class="cc-pms">PMS 5185 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #2D4A3E;"></div>
+            <div class="cc-name">Refuge Deep</div>
+            <div class="cc-hex">#2D4A3E</div>
+            <div class="cc-pms">PMS 5535 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #317BB8;"></div>
+            <div class="cc-name">Horizon Deep</div>
+            <div class="cc-hex">#317BB8</div>
+            <div class="cc-pms">PMS 7688 C</div>
+          </div>
+        </div>
+        <!-- Light row -->
+        <div class="color-grid" style="display: grid; grid-template-columns: 120px repeat(5, 1fr); border: 1px solid rgba(0,0,0,0.12); overflow: hidden; border-radius: 12px;">
+          <div style="background: #EFEBE2; color: #1A1A1A; display: flex; align-items: center; justify-content: center; padding: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-right: 1px solid rgba(0,0,0,0.08);">Light</div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #C8CDD6; border: 1px solid rgba(0,0,0,0.08);"></div>
+            <div class="cc-name">Sentinel Light</div>
+            <div class="cc-hex">#C8CDD6</div>
+            <div class="cc-pms">PMS 538 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #F2C9A8; border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div class="cc-name">Rally Light</div>
+            <div class="cc-hex">#F2C9A8</div>
+            <div class="cc-pms">PMS 9183 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #DEC4D4; border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div class="cc-name">Kinship Light</div>
+            <div class="cc-hex">#DEC4D4</div>
+            <div class="cc-pms">PMS 9360 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #B0C4BC; border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div class="cc-name">Refuge Light</div>
+            <div class="cc-hex">#B0C4BC</div>
+            <div class="cc-pms">PMS 558 C</div>
+          </div>
+          <div class="color-cell color-cell--sm" style="background: #EFEBE2; color: #1A1A1A;">
+            <div class="cc-swatch cc-swatch--sm" style="background: #A8CDE8; border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div class="cc-name">Horizon Light</div>
+            <div class="cc-hex">#A8CDE8</div>
+            <div class="cc-pms">PMS 290 C</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Usage Ratio -->
+      <div class="tier-head">
+        <span class="n">Color Usage Ratio</span>
+        <h3>60 · 30 · 10</h3>
+        <span class="note">A balanced application ensures visual coherence and a recognisable brand identity across all touchpoints.</span>
+      </div>
+
+      <div style="border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; overflow: hidden; margin-top: 32px;">
+        <img src="project/assets/color-ratio.svg" alt="Color Usage Ratio" style="width: 100%; display: block;">
       </div>
 
       <!-- Risk ladder -->
+      <div class="tier-head" style="margin-top:72px;">
+        <span class="n" style="color: var(--red);">Product Design Only</span>
+        <h3>Risk Level Colors</h3>
+        <span class="note">Strictly for trust scores and risk states. Never used in brand or campaign contexts.</span>
+      </div>
+
       <div class="risk-ladder">
         <h3>
           <span>Risk ladder — Product color semantics</span>
